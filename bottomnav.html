@@ -1,0 +1,707 @@
+<HTML>
+<HEAD>
+<TITLE>Winamp 3 Scripting Specification</TITLE>
+</HEAD>
+
+<BODY background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD bgcolor=#448444>.<FONT color=#FFFFFF 
+face="Verdana,Arial"><B>Functions Nav</B></FONT></TD>
+</TR></TABLE>
+
+<TABLE border=0 cellpadding=1 cellspacing=0 width=100%>
+<TR><TD><IMG src="images/pointholder.gif" height=2 width=4></TD></TR>
+<TR><TD bgcolor=#448444>
+
+<A name="Object">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD>
+ <b><A href="main.html#Object" target="main"><FONT color=#FFFFFF size=+1>Object</FONT></A></b></TD>
+ <TD align="right"><A href="main.html#Object" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+
+<TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#getClassName" target="main">getClassName()</A><BR>
+ &nbsp <A href="main.html#getId" target="main">getId()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="System">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="html/system.html" target="main"><FONT color=#FFFFFF size=+1>System</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="html/system.html#info" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>EQ Functions:</b><br>
+ &nbsp <A href="html/system.html#getEq" target="main">getEq()</A><BR>
+ &nbsp <A href="html/system.html#setEq" target="main">setEq()</A><BR>
+ &nbsp <A href="html/system.html#getEqBand" target="main">getEqBand()</A><BR>
+ &nbsp <A href="html/system.html#setEqBand" target="main">setEqBand()</A><BR>
+ &nbsp <A href="html/system.html#getEqPreAmp" target="main">getEqPreAmp()</A><BR>
+ &nbsp <A href="html/system.html#setEqPreAmp" target="main">setEqPreAmp()</A><BR>
+ &nbsp <A href="html/system.html#onEqBandChanged" target="main">onEqBandChanged()</A><BR>
+ &nbsp <A href="html/system.html#onEqChanged" target="main">onEqChanged()</A><BR>
+ &nbsp <A href="html/system.html#onEqPreAmpChanged" target="main">onEqPreAmpChanged()</A><BR>
+ &nbsp <b>Playback Functions:</b><br>
+ &nbsp <A href="html/system.html#Previous" target="main">Previous()</A><BR>
+ &nbsp <A href="html/system.html#Play" target="main">Play()</A><BR>
+ &nbsp <A href="html/system.html#Pause" target="main">Pause()</A><BR>
+ &nbsp <A href="html/system.html#Stop" target="main">Stop()</A><BR>
+ &nbsp <A href="html/system.html#Next" target="main">Next()</A><BR>
+ &nbsp <A href="html/system.html#Eject" target="main">Eject()</A><BR>
+ &nbsp <A href="html/system.html#onPlay" target="main">onPlay()</A><BR>
+ &nbsp <A href="html/system.html#onPause" target="main">onPause()</A><BR>
+ &nbsp <A href="html/system.html#onStop" target="main">onStop()</A><BR>
+ &nbsp <A href="html/system.html#onResume" target="main">onResume()</A><BR>
+ &nbsp <b>Seek Functions:</b><br>
+ &nbsp <A href="html/system.html#getPlayItemString" target="main">getPlayItemString()</A><BR>
+ &nbsp <A href="html/system.html#getPlayItemLength" target="main">getPlayItemLength()</A><BR>
+ &nbsp <A href="html/system.html#getPosition" target="main">getPosition()</A><BR>
+ &nbsp <A href="html/system.html#seekTo" target="main">seekTo()</A><BR>
+ &nbsp <b>Studio.xnf Functions:</b><br>
+ &nbsp <A href="html/system.html#getPrivateInt" target="main">getPrivateInt()</A><BR>
+ &nbsp <A href="html/system.html#getPrivateInt" target="main">setPrivateInt()</A><BR>
+ *&nbsp <A href="html/system.html#getPrivateString" target="main">getPrivateString()</A><BR>
+ *&nbsp <A href="html/system.html#getPrivateString" target="main">setPrivateString()</A><BR>
+ *&nbsp <A href="html/system.html#getPublicInt" target="main">getPublicInt()</A><BR>
+ *&nbsp <A href="html/system.html#getPublicInt" target="main">setPublicInt()</A><BR>
+ *&nbsp <A href="html/system.html#getPublicString" target="main">getPublicString()</A><BR>
+ *&nbsp <A href="html/system.html#getPublicString" target="main">setPublicString()</A><BR>
+ &nbsp <b>Volume Functions:</b><br>
+ &nbsp <A href="html/system.html#getVolume" target="main">getVolume()</A><BR>
+ &nbsp <A href="html/system.html#setVolume" target="main">setVolume()</A><BR>
+ &nbsp <A href="html/system.html#onVolumeChanged" target="main">onVolumeChanged()</A><BR>
+ &nbsp <b>.xml Functions:</b><br>
+ &nbsp <A href="html/system.html#getContainer" target="main">getContainer()</A><BR>
+ &nbsp <A href="html/system.html#getContainer" target="main">getLayout()</A><BR>
+ &nbsp <A href="html/system.html#getContainer" target="main">getObject()</A><BR>
+ &nbsp <A href="html/system.html#newDynamicContainer" target="main">newDynamicContainer()</A><BR>
+ &nbsp <A href="html/system.html#enumContainer" target="main">enumContainer()</A><BR>
+ &nbsp <A href="html/system.html#getWac" target="main">getWac()</A><BR>
+ *&nbsp <A href="html/system.html#getParam" target="main">getParam()</A><BR>
+ &nbsp <b>Math Functions:</b><br>
+ &nbsp <A href="html/system.html#sin" target="main">sin()</A><BR>
+ &nbsp <A href="html/system.html#sin" target="main">cos()</A><BR>
+ &nbsp <A href="html/system.html#sin" target="main">tan()</A><BR>
+ &nbsp <A href="html/system.html#sin" target="main">asin()</A><BR>
+ &nbsp <A href="html/system.html#sin" target="main">acos()</A><BR>
+ &nbsp <A href="html/system.html#sin" target="main">atan()</A><BR>
+ &nbsp <A href="html/system.html#pow" target="main">pow()</A><BR>
+ &nbsp <A href="html/system.html#pow" target="main">sqr()</A><BR>
+ &nbsp <A href="html/system.html#pow" target="main">sqrt()</A><BR>
+ &nbsp <A href="html/system.html#random" target="main">random()</A><BR>
+ &nbsp <b>String Functions:</b><br>
+ &nbsp <A href="html/system.html#integerToString" target="main">integerToString()</A><BR>
+ &nbsp <A href="html/system.html#stringToInteger" target="main">stringToInteger()</A><BR>
+ &nbsp <A href="html/system.html#integerToTime" target="main">integerToTime()</A><BR>
+ *&nbsp <A href="html/system.html#StrMid" target="main">StrMid()</A><BR>
+ *&nbsp <A href="html/system.html#StrRight" target="main">StrRight()</A><BR>
+ *&nbsp <A href="html/system.html#StrLeft" target="main">StrLeft()</A><BR>
+ *&nbsp <A href="html/system.html#StrLength" target="main">StrLength()</A><BR>
+ *&nbsp <A href="html/system.html#StrSearch" target="main">StrSearch()</A><BR>
+ &nbsp <b>Position Functions:</b><br>
+ &nbsp <A href="html/system.html#getMousePosX" target="main">getMousePosX()</A><BR>
+ &nbsp <A href="html/system.html#getMousePosY" target="main">getMousePosY()</A><BR>
+ &nbsp <b>Other:</B><br>
+ *&nbsp <A href="html/system.html#messageBox" target="main">messageBox()</A><BR>
+ *&nbsp <A href="html/system.html#getLeftVuMeter" target="main">getLeftVuMeter()</A><BR>
+ *&nbsp <A href="html/system.html#getRightVuMeter" target="main">getRightVuMeter()</A><BR>
+ <BR>
+ &nbsp <b>Events:</b><br>
+ &nbsp <A href="html/system.html#onScriptLoaded" target="main">onScriptLoaded()</A><BR>
+ &nbsp <A href="html/system.html#onScriptUnloading" target="main">onScriptUnloading()</A><BR>
+ *&nbsp <A href="html/system.html#onCreateLayout" target="main">onCreateLayout()</A><BR>
+ *&nbsp <A href="html/system.html#onCreateLayout" target="main">onShowLayout()</A><BR>
+ *&nbsp <A href="html/system.html#onCreateLayout" target="main">onHideLayout()</A><BR>
+
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444><A name="BitList">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#BitList" target="main"><FONT color=#FFFFFF size=+1>BitList</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#BitList" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp coming soon.
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Container">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Container" target="main"><FONT color=#FFFFFF size=+1>Container</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Container" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ *&nbsp <A href="main.html#show" target="main">show()</A><BR>
+ *&nbsp <A href="main.html#hide" target="main">hide()</A><BR>
+ *&nbsp <A href="main.html#switchToLayout" target="main">switchToLayout()</A><BR>
+ **&nbsp <A href="html/system.html#enumLayout" target="main">enumlayout()</A><BR>
+ **&nbsp <A href="html/system.html#getNumContainers" target="main">getNumContainers()</A><BR>
+ **&nbsp <A href="html/system.html#getNumLayouts" target="main">getNumLayouts()</A><BR>
+ &nbsp <b>Events:</b><br> 
+ *&nbsp <A href="main.html#onSwitchToLayout" target="main">onSwitchToLayout()</A><BR>
+ *&nbsp <A href="main.html#onSwitchToLayout" target="main">onHideLayout()</A><BR>
+ *&nbsp <A href="main.html#onSwitchToLayout" target="main">onShowLayout()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="GuiObject">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="html/guiobject.html" target="main"><FONT color=#FFFFFF size=+1>GuiObject</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="html/guiobject.html#Info" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ *&nbsp <A href="html/guiobject.html#show" target="main">show()</A><BR>
+ *&nbsp <A href="html/guiobject.html#hide" target="main">hide()</A><BR>
+ &nbsp <A href="html/guiobject.html#isVisible" target="main">isVisible()</A><BR>
+ &nbsp <A href="html/guiobject.html#setEnabled" target="main">setEnabled()</A><BR>
+ &nbsp <A href="html/guiobject.html#getEnabled" target="main">getEnabled()</A><BR>
+ &nbsp <A href="html/guiobject.html#resize" target="main">resize()</A><BR>
+ &nbsp <A href="html/guiobject.html#isMouseOver" target="main">isMouseOver()</A><BR>
+ &nbsp <A href="html/guiobject.html#getAlpha" target="main">getAlpha()</A><BR>
+ &nbsp <A href="html/guiobject.html#setAlpha" target="main">setAlpha()</A><BR>
+ &nbsp <A href="html/guiobject.html#getLeft" target="main">getLeft()</A><BR>
+ &nbsp <A href="html/guiobject.html#getWidth" target="main">getWidth()</A><BR>
+ &nbsp <A href="html/guiobject.html#getTop" target="main">getTop()</A><BR>
+ &nbsp <A href="html/guiobject.html#getHeight" target="main">getHeight()</A><BR>
+ &nbsp <A href="html/guiobject.html#setTargetX" target="main">setTargetX()</A><BR>
+ &nbsp <A href="html/guiobject.html#setTargetX" target="main">setTargetY()</A><BR>
+ &nbsp <A href="html/guiobject.html#setTargetX" target="main">setTargetSpeed()</A><BR>
+ &nbsp <A href="html/guiobject.html#setTargetX" target="main">gotoTarget()</A><BR>
+ &nbsp <A href="html/guiobject.html#isGoingToTarget" target="main">isGoingToTarget()</A><BR>
+ &nbsp <A href="html/guiobject.html#setXmlParam" target="main">setXmlParam()</A><BR>
+ *&nbsp <A href="html/guiobject.html#init" target="main">init()</A><BR>
+<BR>
+ &nbsp <b>Events:</b><br>
+ *&nbsp <A href="html/guiobject.html#onEnable" target="main">onEnable()</A><BR>
+ *&nbsp <A href="html/guiobject.html#onResize" target="main">onResize()</A><BR>
+ &nbsp <A href="html/guiobject.html#onMouseMove" target="main">onMouseMove()</A><BR>
+ &nbsp <A href="html/guiobject.html#onEnterArea" target="main">onEnterArea()</A><BR>
+ &nbsp <A href="html/guiobject.html#onEnterArea" target="main">onLeaveArea()</A><BR>
+ &nbsp <A href="html/guiobject.html#onLeftButtonDown" target="main">onLeftButtonDown()</A><BR>
+ &nbsp <A href="html/guiobject.html#onLeftButtonDown" target="main">onLeftButtonUp()</A><BR>
+ &nbsp <A href="html/guiobject.html#onLeftDblClick" target="main">onLeftDblClick()</A><BR>
+ &nbsp <A href="html/guiobject.html#onLeftButtonDown" target="main">onRightButtonDown()</A><BR>
+ &nbsp <A href="html/guiobject.html#onLeftButtonDown" target="main">onRightButtonUp()</A><BR>
+ &nbsp <A href="html/guiobject.html#onLeftDblClick" target="main">onRightDblClick()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Browser">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Browser" target="main"><FONT color=#FFFFFF size=+1>Browser</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Browser" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Button">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Button" target="main"><FONT color=#FFFFFF size=+1>Button</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Button" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#setActivated" target="main">setActivated()</A><BR>
+ *&nbsp <A href="main.html#getActivated" target="main">getActivated()</A><BR>
+ *&nbsp <A href="main.html#leftClick" target="main">leftClick()</A><BR>
+ *&nbsp <A href="main.html#leftClick" target="main">rightClick()</A><BR>
+ *&nbsp <A href="html/guiobject.html#setAlpha" target="main">setAlpha()</A><BR>
+ *&nbsp <A href="html/guiobject.html#setAlpha" target="main">getAlpha()</A><BR>
+ &nbsp <b>Functions:</b><br>
+ *&nbsp <A href="main.html#onActivate" target="main">onActivate()</A><BR>
+ *&nbsp <A href="main.html#onLeftClick" target="main">onLeftClick()</A><BR>
+ *&nbsp <A href="main.html#onLeftClick" target="main">onRightClick()</A><BR>
+
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="ToggleButton">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#ToggleButton" target="main"><FONT color=#FFFFFF size=+1>ToggleButton</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#ToggleButton" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A>, <A href=#Button>Button</A><BR>
+ <BR>
+ &nbsp <b>Events:</b><br>
+ &nbsp <A href="main.html#onToggle" target="main">onToggle()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Component">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Component" target="main"><FONT color=#FFFFFF size=+1>Component</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Component" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+<BR>
+ &nbsp <b>Functions:</b><br>
+ *&nbsp <A href="main.html#getGUID" target="main">getGUID()</A><BR>
+ *&nbsp <A href="main.html#getWac" target="main">getWac()</A><BR>
+ *&nbsp <A href="main.html#setRegionFromMap" target="main">setRegionFromMap()</A><BR>
+ *&nbsp <A href="main.html#setRegion" target="main">setRegion()</A><BR>
+
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="ComponentBucket">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#ComponentBucket" target="main"><FONT color=#FFFFFF size=+1>ComponentBucket</FONT></A></b></TD>
+ </TR>
+ <TR><TD background="images/tableback.jpg" width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Edit">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Edit" target="main"><FONT color=#FFFFFF size=+1>Edit</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Edit" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="EqVis">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#EqVis" target="main"><FONT color=#FFFFFF size=+1>EqVis</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#EqVis" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Layer">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Layer" target="main"><FONT color=#FFFFFF size=+1>Layer</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Layer" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#setRegionFromMap" target="main">setRegionFromMap()</A><BR>
+ &nbsp <b>FX Functions:</b><br>
+* &nbsp <A href="main.html#fx_setAlphaMode" target="main">fx_setAlphaMode()</A><BR>
+* &nbsp <A href="main.html#fx_setBgFx" target="main">fx_setBgFx()</A><BR>
+* &nbsp <A href="main.html#fx_setBilinear" target="main">fx_setBilinear()</A><BR>
+* &nbsp <A href="main.html#fx_setClear" target="main">fx_setClear()</A><BR>
+* &nbsp <A href="main.html#fx_setGridSize" target="main">fx_setGridSize()</A><BR>
+* &nbsp <A href="main.html#fx_setLocalized" target="main">fx_setLocalized()</A><BR>
+* &nbsp <A href="main.html#fx_setRealtime" target="main">fx_setRealtime()</A><BR>
+* &nbsp <A href="main.html#fx_setRect" target="main">fx_setRect()</A><BR>
+* &nbsp <A href="main.html#fx_setSpeed" target="main">fx_setSpeed()</A><BR>
+* &nbsp <A href="main.html#fx_setWrap" target="main">fx_setWrap()</A><BR>
+* &nbsp <A href="main.html#fx_getEnabled" target="main">fx_getEnabled()</A><BR>
+* &nbsp <A href="main.html#fx_setEnabled" target="main">fx_setEnabled()</A><BR>
+ &nbsp <b>Events:</b><br>
+* &nbsp <A href="main.html#onShow" target="main">onShow()</A><BR>
+* &nbsp <A href="main.html#onHide" target="main">onHide()</A><BR>
+* &nbsp <A href="main.html#fx_onGetPixelA" target="main">fx_onGetPixelA()</A><BR>
+* &nbsp <A href="main.html#fx_onGetPixelR" target="main">fx_onGetPixelR()</A><BR>
+* &nbsp <A href="main.html#fx_onGetPixelD" target="main">fx_onGetPixelD()</A><BR>
+* &nbsp <A href="main.html#fx_onGetPixelY" target="main">fx_onGetPixelY()</A><BR>
+* &nbsp <A href="main.html#fx_onFrame" target="main">fx_onFrame()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="AnimatedLayer">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#AnimatedLayer" target="main"><FONT color=#FFFFFF size=+1>AnimatedLayer</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#AnimatedLayer" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A>, <A href=#Layer>Layer</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#getCurFrame" target="main">getCurFrame()</A><BR>
+ &nbsp <A href="main.html#getLength" target="main">getLength()</A><BR>
+ &nbsp <A href="main.html#setAutoReplay" target="main">setAutoReplay()</A><BR>
+ &nbsp <A href="main.html#setEndFrame" target="main">setEndFrame()</A><BR>
+ &nbsp <A href="main.html#setStartFrame" target="main">setStartFrame()</A><BR>
+ &nbsp <A href="main.html#setSpeed" target="main">setSpeed()</A><BR>
+ &nbsp <A href="main.html#gotoFrame" target="main">gotoFrame()</A><BR>
+ &nbsp <A href="main.html#isPlaying" target="main">isPlaying()</A><BR>
+ &nbsp <A href="main.html#Play" target="main">Play()</A><BR>
+ &nbsp <A href="main.html#Stop" target="main">Stop()</A><BR>
+<BR>
+ &nbsp <b>Events:</b><br>
+ &nbsp <A href="main.html#onFrame" target="main">onFrame()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Slider">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Slider" target="main"><FONT color=#FFFFFF size=+1>Slider</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Slider" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#getPosition" target="main">getPosition()</A><BR>
+ *&nbsp <A href="html/guiobject.html#setAlpha" target="main">setAlpha()</A><BR>
+ *&nbsp <A href="html/guiobject.html#setAlpha" target="main">getAlpha()</A><BR>
+<BR>
+ &nbsp <b>Events:</b><br>
+ &nbsp <A href="main.html#onSetPosition" target="main">onSetPosition()</A><BR>
+ &nbsp <A href="main.html#onSetFinalPosition" target="main">onSetFinalPosition()</A><BR>
+ &nbsp <A href="main.html#onPostedPosition" target="main">onPostedPosition()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Status">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Status" target="main"><FONT color=#FFFFFF size=+1>Status</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Status" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Text">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Text" target="main"><FONT color=#FFFFFF size=+1>Text</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Text" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#setText" target="main">setText()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Title">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Title" target="main"><FONT color=#FFFFFF size=+1>Title</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Title" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Title">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Title" target="main"><FONT color=#FFFFFF size=+1>Title</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Title" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR> 
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR><BR>
+ &nbsp <B>Functions:</B><BR>
+ &nbsp <A href="main.html#fake" target="main">fake()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Vis">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Vis" target="main"><FONT color=#FFFFFF size=+1>Vis</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Vis" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A>, 
+ <A href=#GuiObject>GuiObject</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Layout">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Layout" target="main"><FONT color=#FFFFFF size=+1>Layout</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Layout" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ *&nbsp <A href="html/guiobject.html#resize" target="main">resize()</A><BR>
+ *&nbsp <A href="main.html#onDock" target="main">getObject()</A><BR>
+ *&nbsp <A href="main.html#onDock" target="main">getParentContainer()</A><BR>
+ *&nbsp <A href="main.html#onDock" target="main">getVisible()</A><BR>
+ *&nbsp <A href="html/guiobject.html#getLeft" target="main">getLeft()</A><BR>
+ *&nbsp <A href="html/guiobject.html#getLeft" target="main">getTop()</A><BR>
+ *&nbsp <A href="html/guiobject.html#getLeft" target="main">getWidth()</A><BR>
+ *&nbsp <A href="html/guiobject.html#getLeft" target="main">getHeight()</A><BR>
+ *&nbsp <A href="html/guiobject.html#getMousePosX" target="main">getMousePosX()</A><BR>
+ *&nbsp <A href="html/guiobject.html#getMousePosX" target="main">getMousePosY()</A><BR>
+
+ &nbsp <b>Events:</b><br>
+ *&nbsp <A href="main.html#onDock" target="main">onDock()</A><BR>
+ *&nbsp <A href="main.html#onDock" target="main">onUndock()</A><BR>
+ *&nbsp <A href="main.html#onShow" target="main">onShow()</A><BR>
+ *&nbsp <A href="main.html#onShow" target="main">onHide()</A><BR>
+ *&nbsp <A href="main.html#onCreateObject" target="main">onCreateObject()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="List">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#List" target="main"><FONT color=#FFFFFF size=+1>List</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#List" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#addItem" target="main">addItem()</A><BR>
+ &nbsp <A href="main.html#enumItem" target="main">enumItem()</A><BR>
+ &nbsp <A href="main.html#getNumItems" target="main">getNumItems()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Map">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Map" target="main"><FONT color=#FFFFFF size=+1>Map</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Map" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#loadMap" target="main">loadMap()</A><BR>
+ &nbsp <A href="main.html#inRegion" target="main">inRegion()</A><BR>
+ &nbsp <A href="main.html#getValue" target="main">getValue()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="PopupMenu">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#PopupMenu" target="main"><FONT color=#FFFFFF size=+1>PopupMenu</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#PopupMenu" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#checkCommand" target="main">checkCommand()</A><BR>
+ &nbsp <A href="main.html#popAtMouse" target="main">popAtMouse()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Region">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Region" target="main"><FONT color=#FFFFFF size=+1>Region</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Region" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp coming soon.
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Timer">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Timer" target="main"><FONT color=#FFFFFF size=+1>Timer</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Timer" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#setDelay" target="main">setDelay()</A><BR>
+ &nbsp <A href="main.html#setDelay" target="main">setDelay()</A><BR>
+ &nbsp <A href="main.html#start" target="main">start()</A><BR>
+ &nbsp <A href="main.html#start" target="main">stop()</A><BR>
+<BR>
+ &nbsp <b>Events:</b><br>
+ &nbsp <A href="main.html#onTimer" target="main">onTimer()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+<TR><TD><IMG src="images/pointholder.gif" height=4 width=1></TD></TR>
+
+<TR><TD bgcolor=#448444>
+<A name="Wac">
+ <TABLE border=0 cellpadding=2 cellspacing=0 width=100%><TR><TD bgcolor=#448444>
+ <b><A href="main.html#Wac" target="main"><FONT color=#FFFFFF size=+1>Wac</FONT></A></b></TD>
+ <TD align="right" bgcolor=#448444><A href="main.html#Wac" target="main"><FONT color=#FFFFFF>Info</FONT></A> &nbsp 
+ </TD></TR>
+ <TR><TD background="images/tableback.jpg" colspan=2 width=100%>
+ &nbsp <b><A href="basic.html#Inherit" target="main">Inherits</A> from:</b> <A href=#Object>Object</A><BR>
+ <BR>
+ &nbsp <b>Functions:</b><br>
+ &nbsp <A href="main.html#sendCommand" target="main">sendCommand()</A><BR>
+ *&nbsp <A href="main.html#getGUID" target="main">getGUID()</A><BR>
+ *&nbsp <A href="main.html#getName" target="main">getName()</A><BR>
+ *&nbsp <A href="main.html#show" target="main">show()</A><BR>
+ *&nbsp <A href="main.html#hide" target="main">hide()</A><BR>
+ *&nbsp <A href="main.html#isVisible" target="main">isVisible()</A><BR>
+ *&nbsp <A href="main.html#getStatusBar" target="main">getStatusBar()</A><BR>
+ &nbsp <b>Events:</b><br>
+ *&nbsp <A href="main.html#onShow" target="main">onShow()</A><BR>
+ *&nbsp <A href="main.html#onHide" target="main">onHide()</A><BR>
+ *&nbsp <A href="main.html#onNotify" target="main">onNotify()</A><BR>
+ *&nbsp <A href="main.html#setStatusBar" target="main">setStatusBar()</A><BR>
+<BR>
+</TD></TR>
+</TABLE>
+</TD></TR>
+
+</TABLE>
+</TD></TR></TABLE>
+
+</BODY>
+</HTML>

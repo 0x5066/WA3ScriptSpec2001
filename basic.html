@@ -1,0 +1,313 @@
+<HTML>
+<HEAD>
+<TITLE>Basic Info Tutorials - Winamp 3 Scripting Specification</TITLE>
+</HEAD>
+<BODY background="images/background.gif">
+<A name="top">
+
+<CENTER><A href="front.html"><IMG src="images/title.gif" border=0></A></CENTER><BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Basic Info Tutorials</B></FONT></TD>
+  <TD align="right" valign="center"><A href="front.html"><IMG src="images/top.gif" border=0></A> <B><A href="front.html"><FONT color=#FFFFFF>front page</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+Tutorials:
+<LI><A href=#Classes>Classes</A>
+<LI><A href=#Functions>Functions</A>
+<LI><A href=#Inherit>Inheritance</A>
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="Classes">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Classes</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B>Also check out the <A href="html/classquick.html">Classes Quick Reference</A>      
+</B><BR><BR>
+The scripting engine has various predefined object classes - Layers or Maps for 
+example.  The pre-defined functions and events for each predefined class are listed below 
+under functions.  Objects in all classes must be declared as null in the header:<BR>
+<BR><B>
+<PRE>
+    Global Layer My_Layer;
+    Global Map My_Map;
+</PRE></B>
+Moste script objects are <I>non-Instantiable</I>, and must pull an object from the .xml file 
+to be assigned to them using the System function getObject() (without the line break):<BR>
+<BR><B>
+<PRE>
+    My_Layer = System.getContainer("main").
+       getLayout("normal").getObject("mylayer");
+</PRE></B>
+where the object "mylayer" is defined in the .xml file like so:<BR>
+<BR><B>
+<PRE>
+    [layer 
+      id="mylayer" 
+      x="5" y="6" 
+      image="player.mylayer" 
+    /]
+
+    (replace the ['s with <'s)
+</PRE></B>
+Some objects, however, are <I>Instantiable</I> and can be <I>constructed</I> like this:<BR>
+<BR><B>
+<PRE>
+    My_Map = new Map;
+</PRE></B>
+they can then load the appropriate object using built-in functions, as in Map's loadMap().  
+The entire list of object classes that can be constructed is:
+<BR><B>
+<PRE>
+    BitList
+    Layer
+    List
+    Map
+    PopupMenu
+    Region
+    Timer
+</PRE></B>
+What this means is that you can create instantiable objects from these 7 classes 
+<I>dynamically</I>, on the fly in a script.  You CAN NOT do this with any other classes, as 
+they are not yet instantiable. These remaining classes are:
+<BR><B>
+<PRE>
+    AnimatedLayer
+    Browser
+    Button
+    Component
+    ComponentBucket
+    Double
+    Edit
+    EqVis
+    GuiObject
+    Float 
+    Int
+    Layout
+    Slider
+    Status
+    String
+    Text
+    Title
+    ToggleButton
+    Vis
+    Wac
+</PRE></B>
+Actually, Wac is a bit of an exception.  It doesn't need to be constructed, but has to use 
+the System function getWac() - like this (without the line break):
+<BR><B>
+<PRE>
+    My_Main_Wac = System.getWac("
+      {3CBD4483-DC44-11d3-B608-000086340885}");
+</PRE></B>
+So are Container and Layout, which must be loaded using the system function getContainer or 
+getLayout() (without the line break in My_Layout = ):
+<BR><B>
+<PRE>
+    My_Container = System.getContainer("eq");
+    My_Layout = System.getContainer("main").
+       getLayout("normal");
+</PRE></B>
+The one object which never has to be declared is System, and you can call any of System's 
+pre-defined functions from within the function of any object at any time.
+<BR><BR>
+<B><U>Garbage Collecting</B></U><BR>
+Alpha 666 scripting adds support for garbage collecting; this means you can destroy objects 
+discreetly.  Just use the delete command:
+<BR><B>
+<PRE>
+    delete my_layer;
+</PRE></B>
+<BR>
+<B><U>Your Own Classes</B></U><BR>
+In addition, you can create your own classes which can inherit functions from pre-defined 
+classes.  Declare them in the header like this:
+<BR><B>
+<PRE>
+    Class Button MyOwnButton;
+</PRE></B>
+and so on...
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="Functions">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Functions</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B>Pre-defined functions and events by class:</B><BR>
+These will all load in the lower left-hand navigation frame:<BR>
+
+ &nbsp <A href="bottomnav.html#System" target="bottomnav">System</A><BR>
+ &nbsp <A href="bottomnav.html#AllVisibleObjects" target="bottomnav">GuiObject</A> (All Visible Objects)<BR>
+ &nbsp <A href="bottomnav.html#AnimatedLayer" target="bottomnav">AnimatedLayer</A><BR>
+ &nbsp <A href="bottomnav.html#Button" target="bottomnav">Button</A><BR>
+ &nbsp <A href="bottomnav.html#Layer" target="bottomnav">Layer</A><BR>
+ &nbsp <A href="bottomnav.html#List" target="bottomnav">List</A><BR>
+ &nbsp <A href="bottomnav.html#Map" target="bottomnav">Map</A><BR>
+ &nbsp <A href="bottomnav.html#PopupMenu" target="bottomnav">PopupMenu</A><BR>
+ &nbsp <A href="bottomnav.html#Slider" target="bottomnav">Slider</A><BR>
+ &nbsp <A href="bottomnav.html#Text" target="bottomnav">Text</A><BR>
+ &nbsp <A href="bottomnav.html#Timer" target="bottomnav">Timer</A><BR>
+ &nbsp <A href="bottomnav.html#ToggleButton" target="bottomnav">ToggleButton</A><BR>
+ &nbsp <A href="bottomnav.html#Wac" target="bottomnav">Wac</A><BR>
+<BR>
+<B><U>Your Own Functions</B></U><BR>
+You can also define your own functions, declaring them in header:
+<BR><B>
+<PRE>
+    Function MyCoolFunction(int x, int y);
+</PRE></B>
+and then define it in the body of the script;
+<BR><B>
+<PRE>
+    MyCoolFunction(int x, int y) {
+      int n = x * 10;
+      if (n < 0) n = 0;
+      if (n > 255) n = 255;
+      System.setVolume(n);
+    }  
+</PRE></B>
+If you want your function to retun something, declare it in the header:
+<BR><B>
+<PRE>
+    Function int MyCoolFunction(int x, int y);
+</PRE></B>
+and then define it in the body of the script;
+<BR><B>
+<PRE>
+    int MyCoolFunction(int x, int y) {
+      int n = x * 10;
+      if (n < 0) n = 0;
+      if (n > 255) n = 255;
+      System.setVolume(n);
+      return n;
+    }  
+</PRE></B>
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="Inherit">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Inheritance</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B><U>Concept</U></B><BR>
+So you've created objects from the predefined classes and started using some functions.  But 
+exactly what functions can you use with any given object?  Enter the concept of Inheritance.  
+Imagine the predefined classes as children with a common parent - these children inherit 
+behaviour in the form of functions from that parent.  And these children can have their own 
+children, who inherit their parent's functions AND their grandparent's functions.  All of these 
+kids (classes) all part of a family tree, or hierarchy.  The family tree analogy is a good one, 
+because the children in a class "family tree" inherit behaviour, or functions, from any of 
+their predecessors.  So child x inherits functions from its immediate parent, that parent's 
+parent, and so on...
+
+<BR><BR>
+<B><U>Inheritance in WA3</U></B><BR>
+<IMG src="images/inheritance.jpg" align="left" hspace=6 vspace=8 border=1>
+Class <B>Object</B> is the grand-daddy in WA3: every single other class inherits functionality from 
+Object, such as the ability to have functions at all ;)  They also inherit all of Object's 
+functions.  In the WA3 Script Engine, Object has eleven children.  And GuiObject, one of those 
+children, has many children of its own, who even have their own children.  You can see this is 
+all getting rather complex, so I've prepared a diagram.'<BR>
+<BR>
+So AnimatedLayer can use all of Layer's functions, all of GuiObject's functions, AND all of 
+Object's functions.  Cool huh?  I've listed ALL of the functions any given class can use 
+in the function listing, but some of those functions are inherited and refer you back to the 
+definition of that function on the parent class's .html.
+
+
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>
+

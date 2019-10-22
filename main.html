@@ -1,0 +1,475 @@
+<HTML><BODY bgcolor=#000000>
+<TABLE border=0 cellpadding=4 cellspacing=4><TR><TD>
+<A name="Classes">
+<A name="Objects">
+</TD></TR>
+
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="AnimatedLayer">
+<FONT size=+1><B>AnimatedLayer.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#getLength>getLength()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int frames</TD></TR>
+<TR><TD><A href=#getCurFrame>getCurFrame()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int cur_frame</TD></TR>
+<TR><TD><A href=#gotoFrame>gotoFrame()</A></TD>
+<TD>Callable</TD><TD>int frame</TD><TD> - </TD></TR>
+<TR><TD><A href=#setStartFrame>setStartFrame()</A></TD>
+<TD>Callable</TD><TD>int frame</TD><TD> - </TD></TR>
+<TR><TD><A href=#setEndFrame>setEndFrame()</A></TD>
+<TD>Callable</TD><TD>int frame</TD><TD> - </TD></TR>
+<TR><TD><A href=#setAutoReplay>setAutoReplay()</A></TD>
+<TD>Callable</TD><TD>int replay</TD><TD> - </TD></TR>
+<TR><TD><A href=#setSpeed>setSpeed()</A></TD>
+<TD>Callable</TD><TD>int speed</TD><TD> - </TD></TR>
+<TR><TD><A href=#Play>Play()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#Stop>Stop()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#isPlaying>isPlaying()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>Boolean</TD></TR>
+<TR><TD><A href=#onFrame>onFrame()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int frame</TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+<DL>
+
+<A name="getLength">
+<DT><B>getLength()</B>
+<DD>returns int = number frames of animation
+<BR><BR>
+
+<A name="getCurFrame">
+<DT><B>getCurFrame()</B>
+<DD>returns int = current frame
+<BR><BR>
+
+<A name="gotoFrame">
+<DT><B>gotoFrame(int frame)</B>
+<DD>frames are indexed as an array from 0 to n - 1
+<BR><BR>
+
+<A name="setStartFrame">
+<DT><B>setStartFrame(int frame)</B>
+<DD>sets first frame to use for animation
+<BR><BR>
+
+<A name="setEndFrame">
+<DT><B>setEndFrame(int frame)</B>
+<DD>sets last frame to use for animation
+<BR><BR>
+
+<A name="setAutoReplay">
+<DT><B>setAutoReplay(int replay)</B>
+<DD>replay = int[0 or 1] 
+<BR><BR>
+
+<A name="setSpeed">
+<DT><B>setSpeed(int speed)</B>
+<DD>speed = int in milliseconds
+<BR><BR>
+
+<A name="Play">
+<DT><B>Play()</B>
+<DD>starts animation
+<BR><BR>
+
+<A name="Stop">
+<DT><B>Stop()</B>
+<DD>stops animation
+<BR><BR>
+
+<A name="isPlaying">
+<DT><B>isPlaying()</B>
+<DD>returns Boolean True/False depending on whether the animation is running or not
+
+</DL>
+
+<BR>
+<HR>
+
+<U><B>Events:</B></U><BR>
+
+<DL>
+<A name="onFrame">
+<DT><B>onFrame(int p)</B>
+<DD>executed when an animation changes its current (displayed) frame
+<DD>returns the frame it has changed to, p = int[0 to n - 1]
+</DL>
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="Button">
+<FONT size=+1><B>Button.</B></FONT>  (includes ToggleButton, Radio Buttons, etc.)
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#setActivated>setActivated()</A></TD>
+<TD>Callabe</TD><TD>int activate</TD><TD> - </TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+<A name="setActivated">
+<DT><B>setActivated(int activate)</B>
+<DD>activate = int[0 or 1]
+<DL>
+
+</DL>
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="EqVis">
+<FONT size=+1><B>EqVis.</B></FONT>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+<BR>
+
+EQ visualization splin curve.  Inherits from Object (All Visible).
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="Layer">
+<FONT size=+1><B>Layer.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#setRegionFromMap>setRegionFromMap()</A></TD>
+<TD>Callable</TD><TD>Map my_map, int a, int b</TD><TD> - </TD></TR>
+
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+<A name="setRegionFromMap">
+<DT><B>setRegionFromMap(Map my_map, int a, int b)</B>
+<DD>somehow manipulates the region of the layer displayed, I'm still unclear on its usage
+<BR><BR>
+
+</DL>
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="List">
+<FONT size=+1><B>List. </B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#addItem>addItem()</A></TD>
+<TD>Callable</TD><TD>Object this_item</TD><TD> - </TD></TR>
+<TR><TD><A href=#enumItem>enumItem()</A></TD>
+<TD>Callable</TD><TD>int index</TD><TD>Object object_at_index</TD></TR>
+<TR><TD><A href=#getNumItems>getNumItems()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int number_items</TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+
+<A name="addItem">
+<DT><B>addItem(Object this_item)</B>
+<DD>adds the specified object to the list array at the next open index value
+<DD>objects in list arrays are indexed from 0 to n - 1
+<BR><BR>
+
+<A name="enumItem">
+<DT><B>enumItem(int index)</B>
+<DD>returns the object at the specified index value, index = int[0 to n - 1]
+<BR><BR>
+
+<A name="getNumItems">
+<DT><B>getNumItems()</B>
+<DD>returns the total number of objects in the list
+
+</DL>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="Map">
+<FONT size=+1><B>Map.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#loadMap>loadMap()</A></TD>
+<TD>Callable</TD><TD>String my_map</TD><TD>Map my_map_from_xml</TD></TR>
+<TR><TD><A href=#inRegion>inRegion()</A></TD>
+<TD>Callable</TD><TD>int x, int y</TD><TD>Boolean</TD></TR>
+<TR><TD><A href=#getValue>getValue()</A></TD>
+<TD>Callable</TD><TD>int x, int y</TD><TD>int value</TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+
+<A name="loadMap">
+<DT><B>loadMap(String my_map)</B>
+<DD>loads the specified map from the .xml file into the script map after map has been constructed
+<DD>eg. VolumeMap.loadMap("player.volume.map");
+<BR><BR>
+
+<A name="inRegion">
+<DT><B>inRegion(int x, int y)</B>
+<DD>returns Boolean whether (x, y) is within the rectangle defined by the map
+<BR><BR>
+
+<A name="getValue">
+<DT><B>getValue(int x, int y)</B>
+<DD>returns int[0 - 255] corresponding to map alpha value at (x, y)
+
+</DL>
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="PopupMenu">
+<FONT size=+1><B>PopupMenu.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#checkCommand>checkCommand()</A></TD>
+<TD>Callable</TD><TD>int item_to_check, int check</TD><TD> - </TD></TR>
+<TR><TD><A href=#popAtMouse>popAtMouse()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int index</TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+
+<A name="checkCommand">
+<DT><B>checkCommand(int item_to_check, int check)</B>
+<DD>checks or un-checks a popup menu item
+<DD>Item_To_Check is the index of the menu item to be checked, as an array, from 0 to n - 1
+<DD>check = int[0 or 1], i.e. not checked or checked
+<BR><BR>
+
+<A name="popAtMouse">
+<DT><B>popAtMouse()</B>
+<DD>returns int[0 to n - 1], which is the menu item that has been clicked on by user
+
+</DL>
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="Region">
+<FONT size=+1><B>Region.</B></FONT>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+<BR>
+
+As yet unknown.
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="Slider">
+<FONT size=+1><B>Slider.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#getPosition>getPosition()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int position</TD></TR>
+<TR><TD><A href=#onSetPosition>onSetPosition()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int position</TD></TR>
+<TR><TD><A href=#onSetFinalPosition>onSetFinalPosition()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int position</TD></TR>
+<TR><TD><A href=#onPostedPosition>onPostedPosition()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int position</TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+<DL>
+
+<A name="getPosition">
+<DT><B>getPosition()</B>
+<DD>returns position = int [0 - 255]
+
+</DL>
+
+<BR>
+
+<HR>
+
+<B><U>Events:</B></U><BR>
+
+<DL>
+
+<A name="onSetPosition">
+<DT><B>onSetPosition(int pos)</B>
+<DD>returns the slider position when it is changed in a continuous 
+  fashion (eg. dragged) by the system or user = int[0 - 255]
+<BR><BR>
+
+<A name="onSetFinalPosition">
+<DT><B>onSetFinalPosition(int pos)</B>
+<DD>returns the final slider position when it is changed by the system 
+  or user in a non-continuous fashion (eg. clicked) = int[0 - 255]
+<BR><BR>
+
+<A name="onPostedPosition">
+<DT><B>onPostedPosition(int pos)</B>
+<DD>returns slider position when it is changed by the system (eg. 
+  mousewheel) = int[0 - 255]
+
+</DL>
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="Text">
+<FONT size=+1><B>Text.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#setText>setText()</A></TD>
+<TD>Callable</TD><TD>String my_text</TD><TD> - </TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+<A name="setText">
+<DT><B>setText(String my_text)</B>
+<DD>sets the text area display to my_text
+</DL>
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="Timer">
+<FONT size=+1><B>Timer.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#setDelay>setDelay()</A></TD>
+<TD>Callable</TD><TD>int time</TD><TD> - </TD></TR>
+<TR><TD><A href=#start>start()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#start>stop()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onTimer>onTimer()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+<DL>
+
+<A name="setDelay">
+<DT><B>setDelay(int time)</B>
+<DD>time = int in milliseconds
+<BR><BR>
+
+<A name="start">
+<DT><B>start()
+<DT>stop()</B>
+<DD>starts or stops the timer
+
+</DL>
+
+<BR>
+<HR>
+
+<B><U>Events:</B></U><BR>
+
+<DL>
+<A name="onTimer">
+<DT><B>onTimer()</B>
+<DD>executed when Timer count runs down to 0
+</DL>
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="ToggleButton">
+<FONT size=+1><B>ToggleButton.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#onToggle>onToggle()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+
+<A name="onToggle">
+<DT><B>onToggle()</B>
+<DD>executed when button is toggled
+
+</DL>
+
+<BR>
+
+</TD></TR>
+<TR><TD><FONT color=#000000 size=-2> | </FONT></TD></TR>
+<TR><TD bgcolor="D4D4D4">
+
+<A name="Wac">
+<FONT size=+1><B>Wac.</B></FONT>
+<HR>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+<TR><TD><A href=#sendCommand>sendCommand()</A></TD>
+<TD>Callable</TD><TD>String command_string, int m, int n, String unknown</TD><TD> - </TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+
+<A name="sendCommand">
+<DT><B>sendCommand(String command_string, int m, int n, String unknown)</B>
+<DD>haven't really figured out how this works yet
+</DL
+
+<BR>
+
+</TD></TR>
+</TABLE>
+</BODY></HTML>

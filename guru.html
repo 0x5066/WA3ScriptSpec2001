@@ -1,0 +1,219 @@
+<HTML>
+<HEAD>
+<TITLE>Tutorials</TITLE>
+</HEAD>
+<BODY background="images/background.gif">
+<A name="top">
+<A name="DebugGuru">
+
+<CENTER><A href="front.html"><IMG src="images/title.gif" border=0></A></CENTER><BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Debugging Guru Meditations</B> by Francis Gastellu</FONT></TD>
+  <TD align="right" valign="center"><A href="front.html"><IMG src="images/top.gif" border=0></A> <B><A href="front.html"><FONT color=#FFFFFF>front page</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B><U>How it Works</U></B><BR>
+  - Note the numbers the guru prints out :<BR>
+ <BR>
+    Guru Meditation [ERRNO].[VAR][OFFSET]<BR>
+ <BR>
+    ie:<BR>
+ <BR>
+    Guru Meditation 0001C.00129D12 Null Object Called<BR>
+ <BR>
+    Errno  = 0x1C<BR>
+    Var    = 0x0012<BR>
+    Offset = 0x9D12<BR>
+ <BR>
+  - Compile your script with /debug<BR>
+  - Open debug.sym, it'll look like this (this is the output for the sysfunc.m script) :<BR>
+ <BR><BR>
+<B><U>The List</U></B><BR>
+<PRE>
+-- Variables Table ---------------------------------------------------
+var# |                Class |                                    What 
+----------------------------------------------------------------------
+0000 |               System |                                   System*
+0001 |                  Int |                                     NULL*
+0002 |                  Wac |                                 MainComp*
+0003 |                  Wac |                                 Playlist*
+0004 |                 Text |                               Songticker*
+0005 |               Slider |                                   Volbar*
+0006 |               Slider |                                   Seeker*
+0007 |               Slider |                                SeekGhost*
+0008 |                Timer |                          Songtickertimer*
+0009 |                Timer |                                  Wobbler*
+000A |                  Int |                               WobblerWay*
+000B |               Button |                               HintButton[]
+000C |         ToggleButton |                         HintToggleButton[]
+000D |           HintButton |                                     Play*
+000E |           HintButton |                                     Stop*
+000F |           HintButton |                                 Previous*
+0010 |           HintButton |                                     Next*
+0011 |           HintButton |                                    Pause*
+0012 |           HintButton |                                  Thinger*
+0013 |           HintButton |                                     Open*
+0014 |           HintButton |                                       Eq*
+0015 |           HintButton |                                       Ml*
+0016 |           HintButton |                                       Pl*
+0017 |     HintToggleButton |                              ToggleXFade*
+0018 |     HintToggleButton |                            ToggleShuffle*
+0019 |     HintToggleButton |                             ToggleRepeat*
+001A |                  Int |                                     1000
+001B |               String | "{3CBD4483-DC44-11d3-B608-000086340885}"
+001C |               String | "{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D}"
+001D |               String |                                   "Main"
+001E |               String |                                 "Normal"
+001F |               String |                              "Crossfade"
+0020 |               String |                                "Shuffle"
+0021 |               String |                                 "Repeat"
+0022 |               String |                             "Songticker"
+0023 |               String |                                 "Volume"
+0024 |               String |                                 "Seeker"
+0025 |               String |                            "SeekerGhost"
+0026 |               String |                                   "Play"
+0027 |               String |                                  "Pause"
+0028 |               String |                                   "Stop"
+0029 |               String |                                   "Next"
+002A |               String |                               "Previous"
+002B |               String |                                "Thinger"
+002C |               String |                                  "Eject"
+002D |               String |                                     "Eq"
+002E |               String |                                     "Ml"
+002F |               String |                                     "Pl"
+0030 |               String |                  "get_crossfade_enabled"
+0031 |                  Int |                                        0
+0032 |               String |                                       ""
+0033 |               String |                            "get_shuffle"
+0034 |               String |                             "get_repeat"
+0035 |                  Int |                                       50
+0036 |                  Int |                                        p
+0037 |                Float |                                        f
+0038 |                  Int |                                      255
+0039 |                  Int |                                      100
+003A |               String |                               "Volume: "
+003B |               String |                                      "%"
+003C |                  Int |                                        p
+003D |                  Int |                                        p
+003E |                Float |                                        f
+003F |                Float |                                      len
+0040 |                  Int |                                       np
+0041 |               String |                               "Seek to "
+0042 |               String |                                    " / "
+0043 |               String |                                     " ("
+0044 |               String |                                     "%)"
+0045 |                  Int |                                        p
+0046 |                  Int |                                      128
+0047 |                Float |                                        f
+0048 |                Float |                                      len
+0049 |                  Int |                                       np
+004A |                  Int |                                        p
+004B |                  Int |                                        x
+004C |                  Int |                                        y
+004D |               String |                       "Toggle crossfade"
+004E |               String |                          "Toggle repeat"
+004F |               String |                         "Toggle shuffle"
+0050 |                  Int |                                        x
+0051 |                  Int |                                        y
+0052 |                  Int |                                    onoff
+0053 |               String |                                      cmd
+0054 |               String |                                      txt
+0055 |                  Wac |                                     dest
+0056 |               String |                       "crossfade_enable"
+0057 |               String |                                        s
+0058 |               String |                                     "on"
+0059 |               String |                                    "off"
+005A |               String |                                  " now "
+005B |                  Int |                                        x
+005C |                  Int |                                        y
+005D |               String |                                   "Open"
+005E |               String |                              "Equalizer"
+005F |               String |                          "Media Library"
+0060 |               String |                        "Playlist Editor"
+0061 |                  Int |                                        x
+0062 |                  Int |                                        y
+0063 |                  Int |                                        1
+0064 |                  Int |                                       24
+0065 |                  Int |                                 curalpha
+0066 |                  Int |                                       96
+0067 |               String |                                      txt
+-- Events Table ------------------------------------------------------
+var# |         Code Pointer |                                    What 
+----------------------------------------------------------------------
+0000 |                 0000 |                 System.onScriptUnloading
+0000 |                 0014 |                    System.onScriptLoaded
+0008 |                 0447 |                  Songtickertimer.onTimer
+0005 |                 0468 |                     Volbar.onSetPosition
+0005 |                 04B8 |                Volbar.onSetFinalPosition
+0006 |                 04D3 |                     Seeker.onSetPosition
+0007 |                 0593 |                  SeekGhost.onSetPosition
+0007 |                 066D |             SeekGhost.onSetFinalPosition
+000C |                 0698 |        HintToggleButton.onLeftButtonDown
+000C |                 0703 |          HintToggleButton.onLeftButtonUp
+000C |                 0719 |                HintToggleButton.onToggle
+000B |                 0831 |              HintButton.onLeftButtonDown
+000B |                 097C |                HintButton.onLeftButtonUp
+0012 |                 0992 |                      Thinger.onEnterArea
+0012 |                 09AF |                      Thinger.onLeaveArea
+0009 |                 09D0 |                          Wobbler.onTimer
+-- User Functions Table ----------------------------------------------
+               Code Pointer |                                    What 
+----------------------------------------------------------------------
+                       0A55 |                              setTempText
+                       0A86 |                            emptyTempText
+</PRE>
+<BR>
+<B><U>Using The List</U></B><BR>
+  The first section Variables Table, lets you figure out what variable was
+  NULL when the null object was called. If the var number the guru gave
+  you is 0xFFFF, then no luck, this is an internal problem.
+ <BR><BR>
+  The second and third sections lets you figure out where the guru happened.
+  Each event and each user function generates code which starts at an offset. 
+  those tables gives you those offsets. By checking that against the offset
+  the guru gave you, you can figure out where it happened, at least in what
+  function or event.
+ <BR><BR>
+  In our example, the NULL variable was thinger, and the faulty event is
+  Wobbler.onTimer
+<BR><BR>
+<B><U>Logic Problems</U></B><BR> 
+  The scripting language being event driven, it's not always easy to figure
+  out what is going on unless you're well organized. Eventho it happens sometimes 
+  that an event is being triggered without you being aware of it, and it might
+  be a problem, depending on what you're trying to do. So for those instances, i've
+  made a small console component. It won't do anything until it's opened, at which
+  point it'll start logging each hand every script function call and event, until
+  it's closed again. For each of those fucntion calls and events, it'll show you
+  what variable used the function, and what offset in the code you're in. The console
+  component also outputs other messages comming from various parts of the wasabi
+  engine, you can ignore them, they are mainly debugging messages for the team.
+  Get the console here : <A href="http://genghis.winamp.com/~francis/console.wac">Console.wac</A>.
+<BR><BR>
+Have fun !
+Francis
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>

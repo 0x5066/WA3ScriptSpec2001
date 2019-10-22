@@ -1,0 +1,722 @@
+<HTML>
+<HEAD>
+<TITLE>Tutorials</TITLE>
+</HEAD>
+<BODY background="images/background.gif">
+<A name="top">
+
+<CENTER><A href="front.html"><IMG src="images/title.gif" border=0></A></CENTER><BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Application and Error Tutorials</B></FONT></TD>
+  <TD align="right" valign="center"><A href="front.html"><IMG src="images/top.gif" border=0></A> <B><A href="front.html"><FONT color=#FFFFFF>front page</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<LI><A href=#PrivateInts>Using PrivateInts to store/read information from 
+studio.xnf</A>
+<LI><A href=#UsingMaps>Using Maps for Animations</A>
+<LI><A href=#UsingThumbs>Animated Sliders Without Maps</A>
+<LI><A href=#ButtonsOther>Player Buttons in Other Windows</A>
+<LI><A href=#Guru>Avoiding Guru Meditation Errors</A>
+<LI><A href="guru.html">Guru Meditation Debugging Guide</A>
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="PrivateInts">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Using PrivateInts to store/read information</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B><U>Overview</U></B><BR>
+Using the two System functions getPrivateInt() and setPrivateInt() you can do all sorts of 
+cool stuff with studio.xnf.  For example, you can use it to read window states, such as 
+whether a particular component is open or not, or whether or not the thinger is currently 
+visible / being displayed.  You can also use it to store information that your skin can 
+use to change its behaviour.  In my DesertAMP skin, for example, there are many animations. 
+These can seriously slow down performance, so I have an option on the right-click context 
+menu to turn off some of the animations.  I want to store whether the user wants the anims 
+on or not, so that they don't have to switch them off every time they load my skin.  I can 
+use the PrivateInt functions to do this.  
+<BR><BR>
+
+<B><U>How it Works</U></B><BR>
+The functions are pretty simple.  There are a few caveats first of all:
+<LI>both PrivateInt() functions read or write directly from / to studio.xnf
+<LI>if you use getPrivateInt() to try to read a variable from studio.xnf that doesn't actually 
+exist, getPrivateInt() will return 0
+<LI>setPrivateInt() writes a line to the studio.xnf file in the following manner:
+<BR><B>
+<PRE>
+  Script:
+
+  System.setPrivateInt("my_script", "my_variable", 1);
+
+  Studio.xnf:
+
+  my_script_my_variable=1
+</PRE></B>
+<BR>
+What this means is that you can write and read variables and then perform actions based on 
+those variables.  For example, to turn on or off animations, we'd have something like this:
+<BR><B>
+<PRE>
+  When user clicks on particular context menu entry
+  the following function is executed:  
+
+  Function userSetsAnimation(int on_off) {
+    System.setPrivateInt("my_script", "animate_or_not", on_off);
+  }
+
+  Part of an animation tests to see if user wants it
+  to animate or not:
+
+  Function Animator()
+  {
+    int animate = System.getPrivateInt("my_script", "animate_or_not", 1);
+    if (animate) {
+        MyAnimation.Play()
+    }
+  }
+</PRE></B>
+In this way, if the user wants the animations on, on_off will be set to 1, and that integer 
+will be written to studio.xnf as "animate_or_not".  So later on the animator checks to see 
+what integer was written to studio.xnf in the "animate_or_not" line, it will read a 1, which 
+means that the animation will proceed.
+<BR><BR>
+<B><U>Cool Application</U></B><BR>
+So here's the cool thing - you don't just have to read a variable you've already written to 
+studio.xnf, you can read <i><b>any line in studio.xnf</b></i> - any line at all.  It's 
+quite simple really.  The getPrivateInt() function just adds the script name and variable 
+name strings together and looks for the corresponding studio.xnf line.  So if you wanted to 
+figure out what the state of the Thinger was, assuming it was actually called "Thinger", 
+here's how you'd do it.
+<BR><B>
+<PRE>
+   Thinger_State = System.getPrivateInt("container_Thinger", "visible", 1);
+
+   reads this line in studio.xnf:
+
+   container_Thinger_visible=1
+</PRE></B>
+Voila.  Now if the thinger is open, Thinger_State == 1, and if it's closed, Thinger_State == 0.
+And no, I don't know the point of using the third argument for getPrivateInt(), but just 
+leave it as 1 and it'll work, trust me.
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="UsingMaps">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Using Maps for Animations</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+
+<B><U>Overview</U></B><BR>
+So you've got a cool round volume knob or a radical curvy seekbar, but you're not exactly 
+sure how your user is going to use their mouse to set the volume or song position.  Well, 
+you could base your calculations on pure math.  But that would suck.  So Francis came up with 
+the idea of using a map file underlaying your animation layer, exactly the same size as one 
+your animation's frames.  You then apply a gradient in the desired manner to this map file, 
+and have your script read the gradient's alpha values to set your volume or position and your 
+animation's frame.
+<BR><BR>
+
+<B><U>How It Works</U></B><BR>
+A few simple steps:
+<LI>Your map file should be the same size as one frame of animation
+<LI>Your map should contain a gradient of some shape, from alpha of 0 to 255
+<LI>You monitor mouse movement or clicks over your animation using onMouseMove() and 
+onLeft/RightButtonDown/Up()
+<LI>You match the mouse position over your layer to the corresponding position on the 
+map, and read the map's alpha value there
+<LI>You use this value to set the volume, position, or whatever
+<BR><BR>
+
+<B><U>Let's Do It</U></B><BR>
+So first things first, what should your map look like?  Here's an example, comparing your 
+map (on the left) with one frame of you animation (on the right):
+<BR> &nbsp <IMG src="images/map.jpg" border=1> &nbsp <IMG src="images/anim.jpg" border=1><BR>
+So if the user clicks on the red dot on your animation layer, and you have the script set 
+up properly, the script will read the alpha value of the map at the red dot's location and 
+give you a value of something like 175.
+<BR><BR>
+Next, you have to set up your script.  Let's take onLeftButtonDown() to start.  You need to 
+monitor clicks on your animated layer, and the best way to keep track of whether the mouse 
+button has been pressed (but not released) is to do so with an environment variable, called 
+VolumeDrag here. onLeftButtonDown() will be executed whenever the user presses the left mouse 
+button down over your animatedlayer, called MyAnimatedVolume.
+<BR><B>
+<PRE>
+    MyAnimatedVolume.onLeftButtonDown(int x, int y) {
+      VolumeDrag = 1;
+    }
+</PRE></B>
+But you don't want to actually set the volume until the user releases or moves the mouse, so 
+that brings us to OnMouseMove() and onLeftButtonUp().  Let's take onMouseMove() to start.  
+onMouseMove() will monitor movement of the mouse over your animated layer, and 
+will give you the x and y coordinates of the cursor as it moves.  You can use these coordinates 
+to get the map value, and then adjust the animation frame accordingly (assuming 50 frames).  
+Let's also assume you've already <a href=#loadingmap>loaded a map</a> called volMap.  Note also 
+that you only want to change the volume if the mouse button has been pressed, otherwise just 
+moving the mouse over the volume knob without pressing the button will change the volume:
+<BR><B>
+<PRE>
+    MyAnimatedVolume.onMouseMove(int x, int y) {
+      if (VolumeDrag) {
+       x = x - MyAnimatedVolume.getLeft();
+       y = y - MyAnimatedVolume.getTop();
+
+       if(volMap.inRegion(x, y)) {
+         float f = volMap.getValue(x, y);
+         System.setVolume(f);
+         f = f / 255;
+         f = f * 50;
+         MyAnimatedVolume.gotoFrame(f);
+       }
+      }
+    }
+</PRE></B>
+And you'd have the same exact thing in onLeft/RightButtonUp(), except that you'd also 
+change the VolumeDrag variable to reflect the fact that the mouse button has been released:
+<BR><B>
+<PRE>
+    MyAnimatedVolume.onLeftButtonUp(int x, int y) {
+      if (VolumeDrag) {
+       VolumeDrag = 0;
+       x = x - MyAnimatedVolume.getLeft();
+       y = y - MyAnimatedVolume.getTop();
+ 
+       if(volMap.inRegion(x, y)) {
+         float f = volMap.getValue(x, y);
+         System.setVolume(f);
+         f = f / 255;
+         f = f * 50;
+         MyAnimatedVolume.gotoFrame(f);
+       }
+    }
+</PRE></B>
+So let's break it down.
+<BR><BR>
+
+<B><U>Breaking it Down - onMouseMove()</U></B><BR>
+We'll take this basically line by line.
+<BR><B>
+<PRE>
+      x = x - MyAnimatedVolume.getLeft();
+      y = y - MyAnimatedVolume.getTop();
+</PRE></B>
+onMouseMove() gives you x and y relative to (0, 0) of the entire skin, NOT just the 
+animatedlayer.  So you have to recalculate x and y in terms of the animatedlayer so that you 
+can use the map properly.  You're basically moving the origin (0, 0) to the upper left hand 
+corner of your animated layer, positive values going right and down.  Get it?
+<BR><B>
+<PRE>
+      if(volMap.inRegion(x, y)) {
+</PRE></B>
+Here we check to make sure that x and y fall within the rectangle bounded by the map.  We don't 
+want to try to read values for coordinates that don't exist on the map.  Wasabi don't like that. 
+This line means that if x=-50 and y=-26, the { } statement won't be activated.  
+<BR><B>
+<PRE>
+        float f = volMap.getValue(x, y);
+</PRE></B>
+Here's where the real work is being done.  Now we read the alpha value from the map at our 
+coordinates.  This will put a value between 0 and 255 into f.
+<BR><B>
+<PRE>
+        System.setVolume(f);
+        f = f / 255;
+        f = f * 49;
+        MyAnimatedVolume.gotoFrame(f);
+</PRE></B>
+Fortunately, the setVolume() command takes a value between 0 and 255 so we can just shove 
+f right in there.  Then we have to make f into a value between 0 and 49 to make our animation 
+change its frame.
+<BR><BR>
+Now, if this was a seekbar, we'd be using seekTo() instead of setVolume(), which also takes 
+values between 0 and 255, and we'd only use seekTo() in the onLeftButtonUp() function.  Why? 
+Because if we put it in onMouseMove(), the system would seek as the user was moving the mouse, 
+and that would be really annoying.
+<BR><BR>
+Not so bad!
+<BR><BR>
+
+<A name="loadingmap">
+<B><U>Loading Maps</U></B><BR>
+Loading maps can be a bit tricky.  Here's how you do it:
+<BR><B>
+<PRE>
+      in your .xml elements tag:
+
+      [bitmap id="player.volmap" file="player-volmap.png" /]
+
+         replace the ['s with <'s
+
+      in the script header:
+
+      Map volMap;
+
+      in onScriptLoaded() { }:
+
+      volMap = new Map;
+      volMap.loadMap("player.volmap")
+</PRE></B>
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="UsingThumbs">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Animated Sliders W/out Maps</B> by Spoonman</FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B><U>Overview</U></B><BR>
+Okay, so maps can give you Tremendous Power (TM) if your seek bar, volume bar or EQ bands are
+non-standard shapes. But what if you just want, say, standard rectangular EQ bands? In that
+case, you don't need maps. You can still use them if you want, but you can get your slider
+value with simple math. Rectangular sliders can also have thumb buttons, but they are not
+mandatory.
+<BR><BR>
+<B><U>To thumb, or not to thumb?</U></B><BR>
+In Winamp 2.x, the sliders all had thumb buttons (with associated images) that you could
+click on to adjust the level of the slider. In Winamp 3, thumbs are available (such as in
+the Default skin), but you do not have to have them. Still, there are advantages and
+disadvantages to thumbs:
+<OL>
+<LI>Thumbs provide another element to skin, allowing more custom graphics.
+<LI>Thumbs can, however, get in the way of the graphic that you want for your slider.
+<LI>Use of thumbs allows an EQ slider to 'snap' to the 0 mark. At least, that's already
+built in. I haven't figured out yet if you can get this behavior without thumbs or can
+avoid this behavior when using thumbs.
+<LI>If your slider does not animate, or if your animation does not show position (say all
+that changes is color), you will need thumbs to show the slider level at a glance.
+</OL>
+Examples of simple sliders with and without thumbs exist in my <a href="http://www.deskmod.com/index.php?page=show&skinid=19159">Diablo II Pentagram</a> skin. The
+volume slider in the player does not use a thumb, whereas the one in the EQ shade does, as
+do the EQ bands and preamp (more on the preamp later).
+<BR><BR>
+<B><U>Let's get started</U></B><BR>
+The general strategy is very simple. Figure out where you are in your image relative to the
+width--for horizontal--or height--for vertical--and go to that frame in your animation and
+set the necessary system variable. You'll be using the script functions onMouseMove(),
+onLeftButtonDown(), onLeftButtonUp(), getLength() [this gets the number of frames in the
+animation], getHeight() and getTop() and/or getWidth() and getLeft().
+<P>
+Here's all you need for a horizontal Volume bar with no thumb:
+<B><PRE>
+Volume.onMouseMove(int x, int y) {
+  Float v;
+  if (VolChanging) {
+  	float d;
+  	int t;
+  	
+  	d = x;
+	t = Volume.getWidth();
+	d = (d - Volume.getLeft()) / t;
+	if( d > 1 )
+		d = 1;
+	if( d < 0 )
+		d = 0;
+	
+	t = d * Volume.getLength();
+  	
+  	if (t < 0)
+  		t = 0;
+  	if (t >= Volume.getLength())
+  		t = Volume.getLength() - 1;
+  	
+  	Volume.gotoFrame(t);
+	System.setVolume(d * 255);
+  }
+}
+
+Volume.onLeftButtonDown(int x, int y) {
+  Float v;
+    v = x;
+    v = (v - Volume.getLeft()) / Volume.getWidth();
+    v = v * (Volume.getLength());
+    if( v == Volume.getLength() )
+    	v = v - 1;
+    Volume.gotoFrame(v);
+    System.setVolume(v * 255);
+    VolChanging = 1;
+}
+
+
+Volume.onLeftButtonUp(int x, int y) {
+    VolChanging = 0;
+    Songticker.setText("");
+}
+</PRE></B>
+It's a bit different if you're going to have a thumb somewhere (the Default skin has one in
+the EQ shade, as is there in the Default skin. You have to make sure to update
+the slider when you change the animation, and vice versa. "VolSlider" is a separate object
+from "Volume", where Volume is an AnimatedLayer and VolSlider is a slider.
+<B><PRE>
+VolSlider.onSetPosition(int pos) {
+  Float f;
+  Float v;
+
+  System.setVolume(pos);
+
+  f = pos;
+  f = f / 255;
+  v = f * 100;
+  f = f * (Volume.getLength());
+  if (f == Volume.getLength() )
+  	f = f - 1;
+  Volume.gotoFrame(f);
+
+  // If you want to update the volume in the song title line:
+  Songtickertimer.stop();	
+  Songticker.setText("Volume: " + System.integerToString(v) + "%");
+}
+
+VolSlider.onLeftButtonUp(int x, int y) {
+    VolChanging = 0;
+    Songticker.setText("");
+}
+
+Volume.onMouseMove(int x, int y) {
+  Float v;
+  if (VolChanging) {
+  	float d;
+  	int t;
+  	
+  	d = x;
+	t = Volume.getWidth();
+	d = (d - Volume.getLeft()) / t;
+	if( d > 1 )
+		d = 1;
+	if( d < 0 )
+		d = 0;
+	VolSlider.onSetPosition(d * 255);
+  }
+}
+
+
+Volume.onLeftButtonDown(int x, int y) {
+  Float v;
+    v = x;
+    v = (v - Volume.getLeft()) / Volume.getWidth();
+    VolSlider.onSetPosition(v * 255);
+    VolChanging = 1;
+}
+
+
+Volume.onLeftButtonUp(int x, int y) {
+    VolChanging = 0;
+    Songticker.setText("");
+}
+</PRE></B>
+<B><U>Tricks with Thumbs</U></B><BR>
+So, what happens if you don't want a thumb button, but you want your EQ sliders to snap
+to 0? In a word, cheat! In my Diablo II Pentagram skin, you'll see that the EQ Preamp has
+no thumb. Actually, it does, but that thumb is only one pixel and is made transparent by
+the alpha channel. This yields thumb behavior without a thumb. Alternatively, I believe you
+could just put your thumb somewhere off the image or in a masked out portion to get the
+same effect.
+
+
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="ButtonsOther">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Player Buttons in Other Windows</B> by Spoonman</FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B><U>Overview</U></B><BR>
+Have you ever thought about putting the player buttons in other windows? You have? Well, come
+back when you're done taking your prescription medication. Back so soon? Okay. Player buttons
+can be put in other windows, but they require deriving a class off the regular buttons and
+writing new functions to handle the behavior.
+<BR><BR>
+<B><U>Derive a whaa?</U></B><BR>
+First and foremost, let me take a moment here to give a piece of advice: <b><i>DO NOT MUCK 
+ABOUT WITH SYSFUNC.M!</i></b> As tempting as it may be, I have it on good authority (read:
+Francis) that editing sysfunc.m is an Invitation to Pain. Don't do it.
+<P>
+Now, when I say "player buttons", I mean the Cbuttons (play, pause, etc.), the component
+buttons (PL, ML, EQ, Thinger) and the toggle buttons (crossfade, shuffle, repeat). If you
+look in sysfunc.m, you'll see the buttons defined. You'll see these lines:
+<B><PRE>
+  Class Button HintButton;
+  Class ToggleButton HintToggleButton;
+
+  Global HintButton Play, Stop, Previous, Next, Pause;
+  Global HintButton Thinger, Open, Eq, Ml, Pl;
+  Global HintToggleButton ToggleXFade, ToggleShuffle;
+  Global HintToggleButton ToggleRepeat;
+</PRE></B>
+The first two lines state that HintButton and HintToggleButton are new 
+<A href="basic.html#Classes">classes derived</A> from,
+repsectively, Button and ToggleButton. "Derived" means that they will have all of the
+functions from whatever they're derived from (the base class), plus anything you define. If
+a function you define has the same name as something from the base class, your defined
+function will run instead of the base one. If you want more about this, I suggest reading a
+book on C++ or Java, paying attention to "inheritance." In your skin script, you will need to create a new button class (say MyButton) off whichever base button class and then variables
+that use this new class. Like this (from my <a href="http://www.deskmod.com/index.php?page=show&skinid=19159">Diablo II Pentagram</a> skin):
+<B><PRE>
+  Class ToggleButton DIIToggleButton;
+
+  Global DIIToggleButton ToggleXFade, ToggleShuffle, ToggleRepeat;
+  Global DIIToggleButton EQShadeToggleXFade, EQShadeToggleShuffle;
+  Global DIIToggleButton EQShadeToggleRepeat;
+</PRE></B>
+In my skin, I have the crossfade, shuffle and repeat toggles in the EQ shade as well as in
+the player, hence the names above.
+<BR><BR>
+<B><U>Is This Really Necessary?</U></B><BR>
+Yes and no. For the Cbuttons and component buttons, the only reason you need to do all this
+is if you want a song title bar (or something) to show "Play" when you hit play. The default
+player windowshade does no such thing, so those Cbuttons don't require new scripting. But if
+you want a message, you need to write a function that does what the function below does, only
+for your new button class (setTempText() is a function in sysfunc.m that writes to the song
+title bar. It must be reproduced in your skin script.). Say you're putting the Cbuttons in
+the EQ. Presumably you have the buttons defined in your xml. Then you'd need in your script:
+<B><PRE>
+  Class Button MyButton;
+
+  Global MyButton MyPlay, MyStop....;
+
+  System.onScriptLoaded() {
+	.
+	.
+	.
+    MyPlay = getContainer("eq").getLayout("eq").getObject("Play");
+    MyStop = getContainer("eq").getLayout("eq").getObject("Stop");
+  	.
+  	.
+  	.
+  }
+
+  MyButton.onLeftButtonDown(int x, int y) {
+    if (MyButton == MyPlay) setTempText("Play");
+    else if (MyButton == MyStop) setTempText("Stop");
+	.
+	.
+	.
+  }
+</PRE></B>
+<B><U>Toggles are Harder</U></B><BR>
+The Cbuttons and component buttons have their functionality built into the class themselves.
+The toggles, on the other hand, just know how to toggle. You have to tell them exactly
+<i>what</i> to toggle, as well as the message stuff. The crossfade operates on the "main"
+wac, while the shuffle and repeat operate on the playlist wac. "Wac" means WinAmp Component,
+and you can see the various .wac files in the Wacs folder.
+
+So, first you get the Wacs:
+<B><PRE>
+  Global Wac MainComp, Playlist;
+
+  System.onScriptLoaded() {
+    MainComp = getWac("{3CBD4483-DC44-11d3-B608-000086340885}");
+    Playlist = getWac("{45F3F7C1-A6F3-4EE6-A15E-125E92FC3F8D}");
+	.
+	.
+	.
+  }
+</PRE></B>
+Then you have to define the behavior. The message stuff is as the CButtons above. The actual
+toggling must then be defined:
+<B><PRE>
+  MyToggleButton.onToggle(int onoff) {
+    String cmd, txt;
+    Wac dest;
+    if (MyToggleButton == MyToggleXFade) {
+      cmd = "crossfade_enable";
+      txt = "Crossfade";
+      dest = MainComp;
+    } else if (MyToggleButton == MyToggleRepeat) {
+      cmd = "repeat";
+      txt = "Repeat";
+      dest = Playlist;
+    } else if (MyToggleButton == MyToggleShuffle) {
+      cmd = "shuffle";
+      txt = "Shuffle";
+      dest = Playlist;
+    }
+    if (dest) {
+      dest.sendCommand(cmd, onoff, 0,"");
+      String s;
+      if (onoff) s = "on"; else s = "off";
+      setTempText(txt + " now " + s);
+    }
+  }
+</PRE></B>
+<B><U>Duplicating, not just Moving</U></B><BR>
+If you provide a duplicated button <i>in addition to</i> an existing button, there are some
+tricky details. If they can both be visible at the same time, you'll want to ensure that clicking one also updates the other. This may not be necessary for the Cbuttons (which do
+not typically show state), but will absolutely be necessary for the component buttons and
+toggle buttons. Writing one set of functions to run against both sets of buttons is a good
+way to solve this problem. You'll need some OR logic--using the || operator--and you'll
+have to set all of the buttons each time, but it works.
+
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="Guru">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Avoiding Guru Meditation Errors</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B><U>Overview</U></B><BR>
+That flashing red and black box usually produces a cry from whoever is sitting at the computer, 
+or if it's me a string of swears followed by a long swig of whiskey.  What is "Guru Meditation", 
+and where did he come from?  Here is <A href="http://www.winamp.com/nsdn/winamp3x/faq.jhtml">Nullsoft's explanation</A>. 
+ Of course they don't really tell you how to avoid these little nasties.  Well, I've compiled a 
+list of the situations in which you might invoke the next guru appocalypse.  They usually 
+involve a null pointer exception.  This list is far 
+from complete.  Additions are welcome, <A href=mailto:02jsk@williams.edu>e-mail me</A>.
+<BR><BR>
+
+<B><U>The List</U></B><BR>
+<b>1.  Trying to load an object from the .xml files with getContainer(), getLayout(), or getObject() 
+when that object doesn't actually exist.</b>  getObject(mylayir) is not going to work if you hit a 
+typo and what you really want to load is an .xml [layer] with the id="mylayer".
+<BR><BR>
+<b>2. Trying to access an array (List) index that doesn't exist.</b>  For example, if your List my_list 
+has 8 objects in it, that is my_list(0) to my_list(7), trying to set x = my_list(8) is going 
+to give you the big 'ol red and black screen of nirvana.
+<BR><BR>
+<b>3. Trying to pass a function the wrong paramters.</b>  For example, if you have your little 
+function Function My_Func(int x, int y, float v), and somewhere in your script you have a call 
+to your function that doesn't send the right paramters, eg. My_Func(4, 3.2) -- watch out!
+<BR><BR>
+
+<B><U>Debugging</U></B><BR>
+If this doesn't solve your problem, you can pinpoint it exactly using Francis' super swift 
+<A href="guru.html">Guru Meditation Debugging Guide</A>.
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>

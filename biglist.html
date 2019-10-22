@@ -1,0 +1,232 @@
+<HTML>
+<HEAD>
+<TITLE>Big List</TITLE>
+</HEAD>
+<BODY>
+<TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U>Function</U></TD><TD><U>Type</U></TD><TD><U>Arguments</U></TD><TD><U>Returns</U></TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>System</FONT></B></TD></TR>
+
+<TR><TD bgcolor=#D4D4D4><A href="main.html#getPrivateInt">getPrivateInt()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>String script_name, String variable_name, int variable</TD><TD>int private_int</TD></TR>
+<TR><TD><A href="main.html#getPrivateInt">setPrivateInt()</A></TD>
+<TD>Callable</TD><TD>String script_name, String variable_name, int variable</TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#getVolume">getVolume()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD>int volume</TD></TR>
+<TR><TD><A href="main.html#setVolume">setVolume()</A></TD>
+<TD>Callable</TD><TD>int volume</TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#getPlayItemLength">getPlayItemLength()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD>int length</TD></TR>
+<TR><TD><A href="main.html#getPosition">getPosition()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int position</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#seekTo">seekTo()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>int time</TD><TD> - </TD></TR>
+<TR><TD><A href=#Play>Play()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href=#Pause>Pause()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#Stop>Stop()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href=#Previous>Previous()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#Next>Next()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href=#Eject>Eject()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#getEq">getEq()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>Boolean</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#setEq">setEq()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>int on_off</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#getEqBand">getEqBand()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int band, int value</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#setEqBand">setEqBand()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>int band, int value</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#getEqPreAmp">getEqPreAmp()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int value</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#setEqPreAmp">setEqPreAmp()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>int value</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#getContainer">getContainer()</A></TD>
+<TD>Callable</TD><TD>String my_cont</TD><TD>Container my_cont_from_xml</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href=#getContainer>getLayout()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>String my_lay</TD><TD>Layout my_lay_from_xml</TD></TR>
+<TR><TD><A href="main.html#getContainer">getObject()</A></TD>
+<TD>Callable</TD><TD>String my_obj</TD><TD>Object my_obj_from_xml</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#getNumContainers">getNumContainers()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD>int num_containers</TD></TR>
+<TR><TD><A href="main.html#getNumLayouts">getNumLayouts()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int num_layouts</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#enumContainer">enumContainer()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>int container</TD><TD>Container container_from_xml</TD></TR>
+<TR><TD><A href="main.html#enumLayout">enumLayout()</A></TD>
+<TD>Callable</TD><TD>int layout</TD><TD>Layout layout_from_xml</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#getWac">getWac()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>String my_wac</TD><TD>Wac my_wac_from_system</TD></TR>
+<TR><TD><A href="main.html#cos">cos()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double cosine_p</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#sin">sin()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>double p</TD><TD>double sine_p</TD></TR>
+<TR><TD><A href="main.html#integerToString">integerToString()</A></TD>
+<TD>Callable</TD><TD>int value</TD><TD>String my_value</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#integerToTime">integerToTime()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4>int time</TD><TD>Time my_time</TD></TR>
+<TR><TD><A href="main.html#getMousePosX">getMousePosX()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int x</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#getMousePosY">getMousePosY()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD>int y</TD></TR>
+
+<TR><TD><A href="main.html#onScriptLoaded">onScriptLoaded()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#onPlay">onPlay()</A></TD>
+<TD>Event</TD><TD bgcolor=#D4D4D4> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#onPause">onPause()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#onStop">onStop()</A></TD>
+<TD>Event</TD><TD bgcolor=#D4D4D4> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#onEqBandChanged">onEqBandChanged()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int band, int value</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#onEqChanged">onEqChanged()</A></TD>
+<TD>Event</TD><TD bgcolor=#D4D4D4> - </TD><TD>Boolean</TD></TR>
+<TR><TD><A href="main.html#onEqPreAmpChanged">onEqPreAmpChanged()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int value</TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>All Visible</FONT></B></TD></TR>
+
+<TR><TD bgcolor=#D4D4D4><A href="main.html#getLeft">getLeft()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD>int left</TD></TR>
+<TR><TD><A href="main.html#getTop">getTop()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int top</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#getWidth">getWidth()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD>int width</TD></TR>
+<TR><TD><A href="main.html#getHeight">getHeight()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int height</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href=#getAlpha>getAlpha()</A></TD>
+<TD>Callable</TD><TD bgcolor=#D4D4D4> - </TD><TD>int alpha</TD></TR>
+<TR><TD><A href="main.html#setAlpha">setAlpha()</A></TD>
+<TD>Callable</TD><TD>int alpha</TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#onMouseMove">onMouseMove()</A></TD>
+<TD>Event</TD><TD bgcolor=#D4D4D4> - </TD><TD>int x, int y</TD></TR>
+<TR><TD><A href="main.html#onLeftClick">onLeftClick()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#onLeftClick">onRightClick()</A></TD>
+<TD>Event</TD><TD bgcolor=#D4D4D4> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#onLeftButtonDown">onLeftButtonDown()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int x, int y</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#onLeftButtonDown">onLeftButtonUp()</A></TD>
+<TD>Event</TD><TD bgcolor=#D4D4D4> - </TD><TD>int x, int y</TD></TR>
+<TR><TD><A href="main.html#onLeftButtonDown">onRightButtonDown()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int x, int y</TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#onLeftButtonDown">onRightButtonUp()</A></TD>
+<TD>Event</TD><TD bgcolor=#D4D4D4> - </TD><TD>int x, int y</TD></TR>
+<TR><TD><A href="main.html#onEnterArea">onEnterArea()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD bgcolor=#D4D4D4><A href="main.html#onEnterArea">onLeaveArea()</A></TD>
+<TD>Event</TD><TD bgcolor=#D4D4D4> - </TD><TD> - </TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>AnimatedLayer.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#getLength">getLength()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int frames</TD></TR>
+<TR><TD><A href="main.html#getCurFrame">getCurFrame()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int cur_frame</TD></TR>
+<TR><TD><A href="main.html#gotoFrame">gotoFrame()</A></TD>
+<TD>Callable</TD><TD>int frame</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setStartFrame">setStartFrame()</A></TD>
+<TD>Callable</TD><TD>int frame</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setEndFrame">setEndFrame()</A></TD>
+<TD>Callable</TD><TD>int frame</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setAutoReplay">setAutoReplay()</A></TD>
+<TD>Callable</TD><TD>int replay</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setSpeed">setSpeed()</A></TD>
+<TD>Callable</TD><TD>int speed</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#Play">Play()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#Stop">Stop()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#isPlaying">isPlaying()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>Boolean</TD></TR>
+<TR><TD><A href="main.html#onFrame">onFrame()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int frame</TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>Button.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#setActivated">setActivated()</A></TD>
+<TD>Callable</TD><TD>int activate</TD><TD> - </TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>Layer.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#resiz">resize()</A></TD>
+<TD>Callable</TD><TD>int x, int y, int w, int h</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setTargetX">setTargetX()</A></TD>
+<TD>Callable</TD><TD>int x</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setTargetX">setTargetY()</A></TD>
+<TD>Callable</TD><TD>int y</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setTargetX">setTargetSpeed()</A></TD>
+<TD>Callable</TD><TD>int speed</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setTargetX">gotoTarget()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#setRegionFromMap">setRegionFromMap()</A></TD>
+<TD>Callable</TD><TD>Map my_map, int a, int b</TD><TD> - </TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>List.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#addItem">addItem()</A></TD>
+<TD>Callable</TD><TD>Object this_item</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#enumItem">enumItem()</A></TD>
+<TD>Callable</TD><TD>int index</TD><TD>Object object_at_index</TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>Map.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#loadMap">loadMap()</A></TD>
+<TD>Callable</TD><TD>String my_map</TD><TD>Map my_map_from_xml</TD></TR>
+<TR><TD><A href="main.html#inRegion">inRegion()</A></TD>
+<TD>Callable</TD><TD>int x, int y</TD><TD>Boolean</TD></TR>
+<TR><TD><A href="main.html#getValue">getValue()</A></TD>
+<TD>Callable</TD><TD>int x, int y</TD><TD>int value</TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>PopUpMenu.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#checkCommand">checkCommand()</A></TD>
+<TD>Callable</TD><TD>int item_to_check, int check</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#popAtMouse">popAtMouse()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int index</TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>Slider.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#getPosition">getPosition()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int position</TD></TR>
+<TR><TD><A href="main.html#onSetPosition">onSetPosition()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int position</TD></TR>
+<TR><TD><A href="main.html#onSetFinalPosition">onSetFinalPosition()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int position</TD></TR>
+<TR><TD><A href="main.html#onPostedPosition">onPostedPosition()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int position</TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>Text.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#setText">setText()</A></TD>
+<TD>Callable</TD><TD>String my_text</TD><TD> - </TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>Timer.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#setDelay">setDelay()</A></TD>
+<TD>Callable</TD><TD>int time</TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#start">start()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#start">stop()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href="main.html#onTimer">onTimer()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>Togglebutton.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#onToggle">onToggle()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+
+<TR><TD colspan=4><B><FONT size=+1>Wac.</FONT></B></TD></TR>
+
+<TR><TD><A href="main.html#sendCommand">sendCommand()</A></TD>
+<TD>Callable</TD><TD>String command_string, int m, int n, String unknown</TD><TD> - </TD></TR>
+
+</BODY>
+</HTML>

@@ -1,0 +1,266 @@
+<HTML>
+<HEAD>
+<TITLE>Class GuiObject - Winamp 3 Scripting Specification</TITLE>
+</HEAD>
+<BODY background="../images/background.gif">
+<A name="top">
+
+<CENTER><A href="../front.html"><IMG src="../images/title.gif" border=0></A></CENTER><BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="../images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="../images/top.jpg"></TD>
+<TD background="../images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Class View</B></FONT></TD>
+  <TD align="right" valign="center"><A href="../front.html"><IMG src="../images/top.gif" border=0></A> <B><A href="../front.html"><FONT color=#FFFFFF>front page</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD width=100%><TABLE cellpadding=0 cellspacing=0 border=0 width=100%><TR><TD bgcolor=#000000 width=100%></TD></TR></TABLE></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#FFFFFF>
+  <TABLE border=0 cellspacing=0 cellpadding=4 width=100%>
+  <TR><TD><FONT size=+2><B>GuiObject.</B></FONT>
+     <FONT size=+1> &nbsp <I>(<A href="../basic.html#Classes">Class</A>)</I></FONT></TD>
+  <TD align="right" bgcolor=#FFFFFF><A href=#Info>Info</A> &nbsp - &nbsp <A href=#Functions>Functions</A></TD></TR>
+  </TABLE>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD width=100%><TABLE cellpadding=0 cellspacing=0 border=0 width=100%><TR><TD bgcolor=#000000 width=100%></TD></TR></TABLE></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#91C192><A name="Info">
+  <TABLE border=0 cellspacing=0 cellpadding=4 width=100%>
+  <TR><TD><B><U><FONT size=+1>Info</FONT></B></U></TD></TR>
+  </TABLE>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD width=100% background="../images/tableback.jpg"><IMG src="../images/pointholder.gif" height=6 width=1></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD align="center" width=100% background="../images/tableback.jpg">
+    <TABLE border=1 width=98% cellpadding=4>  
+    <TR><TD><B><A href="../basic.html#Inherit">Inherits</A> from:</B></TD><TD><B><A href="../bottomnav.html#Object" target="bottomnav">Object</A></B></TD></TR>
+    <TR><TD><B><A href="../basic.html#Classes">Type</A>:</B></TD><TD><B>Referenceable, Non - Instantiable</B></TD></TR>
+    <TR><TD colspan=2><B>Usage:</B><BR>
+    </TD></TR>
+    <TR><TD colspan=2><B>Notes:</B><BR>
+      Objects of class GuiObject are rarely used unless they are created as custom user objects. 
+      Otherwise, class GuiObject exists mostly for inheritence purposes, so that visible 
+      objects such as buttons can share behaviour without having to re-write lots of code.  
+      Any class which inherits from GuiObject can use any of GuiObject's functions at any time.
+    </TD></TR> 
+    </TABLE>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD width=100% background="../images/tableback.jpg"><IMG src="../images/pointholder.gif" 
+  height=6 width=1><TABLE cellpadding=0 cellspacing=0 border=0 width=100%><TR><TD bgcolor=#000000 width=100%></TD></TR></TABLE></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#A1A1D2><A name="Functions">
+      <TABLE border=0 cellspacing=0 cellpadding=4 width=100%>
+      <TR><TD><B><FONT size=+1><U>Functions</U></FONT></B></TD></TR>
+      </TABLE>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#C4C4E4>
+    <TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U><B>Function</B></U></TD><TD><U><B>Type</B></U></TD><TD><U><B>Arguments</B></U></TD><TD><U><B>Returns</B></U></TD></TR>
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>Callable Functions:</B></TD></TR>
+<TR><TD><A href=#setEnabled>setEnabled()</A></TD>
+<TD>Callable</TD><TD>Boolean</TD><TD> - </TD></TR>
+<TR><TD><A href=#getEnabled>getEnabled()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>Boolean</TD></TR>
+<TR><TD><A href=#isVisible>isVisible()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>Boolean</TD></TR>
+<TR><TD><A href=#isMouseOver>isMouseOver()</A></TD>
+<TD>Callable</TD><TD>int x, int y</TD><TD>Boolean</TD></TR>
+<TR><TD><A href=#getLeft>getLeft()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int left</TD></TR>
+<TR><TD><A href=#getTop>getTop()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int top</TD></TR>
+<TR><TD><A href=#getWidth>getWidth()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int width</TD></TR>
+<TR><TD><A href=#getHeight>getHeight()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int height</TD></TR>
+<TR><TD><A href=#getAlpha>getAlpha()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int alpha</TD></TR>
+<TR><TD><A href=#setAlpha>setAlpha()</A></TD>
+<TD>Callable</TD><TD>int alpha</TD><TD> - </TD></TR>
+<TR><TD><A href=#resize>resize()</A></TD>
+<TD>Callable</TD><TD>int x, int y, int w, int h</TD><TD> - </TD></TR>
+<TR><TD><A href=#setTargetX>setTargetX()</A></TD>
+<TD>Callable</TD><TD>int x</TD><TD> - </TD></TR>
+<TR><TD><A href=#setTargetX>setTargetY()</A></TD>
+<TD>Callable</TD><TD>int y</TD><TD> - </TD></TR>
+<TR><TD><A href=#setTargetX>setTargetSpeed()</A></TD>
+<TD>Callable</TD><TD>int speed</TD><TD> - </TD></TR>
+<TR><TD><A href=#setTargetX>gotoTarget()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#isGoingToTarget>isGoingToTarget()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>Boolean</TD></TR>
+<TR><TD><A href=#setXmlParam>setXmlParam()</A></TD>
+<TD>Callable</TD><TD>String param, String value</TD><TD> - </TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>Events:</B></TD></TR>
+<TR><TD><A href=#onMouseMove>onMouseMove()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int x, int y</TD></TR>
+<TR><TD><A href=#onLeftClick>onLeftClick()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onLeftClick>onRightClick()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onLeftButtonDown>onLeftButtonDown()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int x, int y</TD></TR>
+<TR><TD><A href=#onLeftButtonDown>onLeftButtonUp()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int x, int y</TD></TR>
+<TR><TD><A href=#onLeftButtonDown>onRightButtonDown()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int x, int y</TD></TR>
+<TR><TD><A href=#onLeftButtonDown>onRightButtonUp()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int x, int y</TD></TR>
+<TR><TD><A href=#onEnterArea>onEnterArea()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onEnterArea>onLeaveArea()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+<A name="setEnabled">
+<DT><B>setEnabled(Boolean enable)</B>
+<DD>enable = [0 or 1]
+<BR><BR>
+
+<A name="getEnabled">
+<DT><B>getEnabled()</B>
+<DD>returns activity status as Boolean = [0 or 1] for off or on
+<BR><BR>
+
+<A name="isVisible">
+<DT><B>isVisible()</B>
+<DD>returns Boolean
+<BR><BR>
+
+<A name="isMouseOver">
+<DT><B>isMouseOver(int x, int y)</B>
+<DD>returns Boolean true if mouse is over specified coordinate
+<BR><BR>
+
+<A name="getLeft">
+<DT><B>getLeft()</B>
+<DD>returns int
+<BR><BR>
+
+<A name="getTop">
+<DT><B>getTop()</B>
+<DD>returns int
+<BR><BR>
+
+<A name="getWidth">
+<DT><B>getWidth()</B>
+<DD>returns int
+<BR><BR>
+
+<A name="getHeight">
+<DT><B>getHeight()</B>
+<DD>returns int
+<BR><BR>
+
+<A name="getAlpha">
+<DT><B>getAlpha()</B>
+<DD>returns the object's alpha value, int[0 - 255]
+<BR><BR>
+</DL>
+
+<A name="setAlpha">
+<DT><B>setAlpha(int alpha)</B>
+<DD>sets the object's alpha value, int[0 - 255]
+<BR><BR>
+
+<A name="resize">
+<DT><B>resize(int x, int y, int w, int h)</B>
+<DD>resizes the specified layer using the specified coordinates
+<DD>can be used to move layers by changing x and y but keeping w and h the same
+<BR><BR>
+
+<A name="setTargetX">
+<DT><B>setTargetX(int x)
+<DT>setTargetY(int y)
+<DT>setTargetSeed(int speed)
+<DT>gotoTarget()</B>
+<DD>moves the layer to the specified coordinates after the specified amount of time
+<DD>upon invocation of gotoTarget() - speed = int in milliseconds
+<BR><BR>
+
+<A name="isGoingToTarget">
+<DT><B>isGoingToTarget()</B>
+<DD>returns Boolean true if object is in the process of going to its target
+<BR><BR>
+
+<A name="setXmlParam">
+<DT><B>setXmlParam(String parameter, String value)</B>
+<DD>sets or returns a parameter in the layer's definition from the xml, like this:
+<DD>setXmlParam("ghost", "1");
+<BR><BR>
+
+</DL>
+
+<HR>
+
+<U><B>Events:</B></U><BR>
+
+<DL>
+<A name="onMouseMove">
+<DT><B>onMouseMove(int x, int y)</B>
+<DD>executed whenever the mouse moves over the object
+<DD>returns the mouse's location
+<BR><BR>
+
+<A name="onLeftButtonDown">
+<DT><B>onLeftButtonDown(int x, int y)
+<DT>onRightButtonDown(int x, int y)
+<DT>onLeftButtonUp(int x, int y)
+<DT>onRightButtonUp(int x, int y)</B>
+<DD>executed when the appropriate mouse button is pressed OR released over an object
+<BR><BR>
+
+<A name="onLeftDblClick">
+<DT><B>onLeftDblClick()
+<DT>onRightDblClick()</B>
+<DD>executed when the appropriate mouse button is double clicked on an object
+<BR><BR>
+
+<A name="onEnterArea">
+<DT><B>onEnterArea()
+<DT>onLeaveArea()</B>
+<DD>executed when the mouse cursor enters or leaves the rectangle defined by an object
+<BR>
+
+</DL>
+
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>
+

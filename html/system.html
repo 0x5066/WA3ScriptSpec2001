@@ -1,0 +1,495 @@
+<HTML>
+<HEAD>
+<TITLE>Class System - Winamp 3 Scripting Specification</TITLE>
+</HEAD>
+<BODY background="../images/background.gif">
+<A name="top">
+
+<CENTER><A href="../front.html"><IMG src="../images/title.gif" border=0></A></CENTER><BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="../images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="../images/top.jpg"></TD>
+<TD background="../images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Class View</B></FONT></TD>
+  <TD align="right" valign="center"><A href="../front.html"><IMG src="../images/top.gif" border=0></A> <B><A href="../front.html"><FONT color=#FFFFFF>front page</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD width=100%><TABLE cellpadding=0 cellspacing=0 border=0 width=100%><TR><TD bgcolor=#000000 width=100%></TD></TR></TABLE></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#FFFFFF>
+  <TABLE border=0 cellspacing=0 cellpadding=4 width=100%>
+  <TR><TD><FONT size=+2><B>System.</B></FONT>
+     <FONT size=+1> &nbsp <I>(<A href="../basic.html#Classes">Class</A>)</I></FONT></TD>
+  <TD align="right" bgcolor=#FFFFFF><A href=#Info>Info</A> &nbsp - &nbsp <A href=#Functions>Functions</A></TD></TR>
+  </TABLE>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD width=100%><TABLE cellpadding=0 cellspacing=0 border=0 width=100%><TR><TD bgcolor=#000000 width=100%></TD></TR></TABLE></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#91C192><A name="Info">
+  <TABLE border=0 cellspacing=0 cellpadding=4 width=100%>
+  <TR><TD><B><U><FONT size=+1>Info</FONT></B></U></TD></TR>
+  </TABLE>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD width=100% background="../images/tableback.jpg"><IMG src="../images/pointholder.gif" height=6 width=1></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD align="center" width=100% background="../images/tableback.jpg">
+    <TABLE border=1 width=98% cellpadding=4>  
+    <TR><TD><B><A href="../basic.html#Inherit">Inherits</A> from:</B></TD><TD><B><A href="../bottomnav.html#Object" target="bottomnav">Object</A></B></TD></TR>
+    <TR><TD><B><A href="../basic.html#Classes">Type</A>:</B></TD><TD><B>Referenceable, Non - Instantiable</B></TD></TR>
+    <TR><TD colspan=2><B>Usage:</B><BR>
+<PRE>
+  MyCoolFunction(int v) {
+    int set_value = v * 14;
+    set_value = set_value * 255;
+    set_value = set_value / 100;
+</PRE>
+<B><PRE>
+    System.setVolume(set_value);
+</PRE></B>
+<PRE>
+  }
+</PRE></TD></TR>
+    <TR><TD colspan=2><B>Notes:</B><BR>
+      The System object never has to be declared in the header, nor does it have to be loaded 
+      at runtime with onScriptLoaded() or deleted in onScriptUnloading().  It can simply be 
+      referenced at any time from within any function to perform system functions related to 
+      volume, song position, EQ settings, and others.
+    </TD></TR> 
+    </TABLE>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD width=100% background="../images/tableback.jpg"><IMG src="../images/pointholder.gif" 
+  height=6 width=1><TABLE cellpadding=0 cellspacing=0 border=0 width=100%><TR><TD bgcolor=#000000 width=100%></TD></TR></TABLE></TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#A1A1D2><A name="Functions">
+      <TABLE border=0 cellspacing=0 cellpadding=4 width=100%>
+      <TR><TD><B><FONT size=+1><U>Functions</U></FONT></B></TD></TR>
+      </TABLE>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+
+<TR><TD background="../images/left.jpg"></TD>
+<TD bgcolor=#C4C4E4>
+    <TABLE border=0 cellpadding=3 cellspacing=2 width=100%>
+<TR><TD><U><B>Function</B></U></TD><TD><U><B>Type</B></U></TD><TD><U><B>Arguments</B></U></TD><TD><U><B>Returns</B></U></TD></TR>
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>EQ Functions:</B></TD></TR>
+<TR><TD><A href=#getEq>getEq()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int on_off</TD></TR>
+<TR><TD><A href=#setEq>setEq()</A></TD>
+<TD>Callable</TD><TD>int on_off</TD><TD> - </TD></TR>
+<TR><TD><A href=#getEqBand>getEqBand()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int band, int value</TD></TR>
+<TR><TD><A href=#setEqBand>setEqBand()</A></TD>
+<TD>Callable</TD><TD>int band, int value</TD><TD> - </TD></TR>
+<TR><TD><A href=#getEqPreAmp>getEqPreAmp()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int value</TD></TR>
+<TR><TD><A href=#setEqPreAmp>setEqPreAmp()</A></TD>
+<TD>Callable</TD><TD>int value</TD><TD> - </TD></TR>
+<TR><TD><A href=#onEqBandChanged>onEqBandChanged()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int band, int value</TD></TR>
+<TR><TD><A href=#onEqChanged>onEqChanged()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>Boolean</TD></TR>
+<TR><TD><A href=#onEqPreAmpChanged>onEqPreAmpChanged()</A></TD>
+<TD>Event</TD><TD> - </TD><TD>int value</TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>Playback Functions:</B></TD></TR>
+<TR><TD><A href=#Play>Play()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#Pause>Pause()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#Stop>Stop()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#Previous>Previous()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#Next>Next()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#Eject>Eject()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onPlay>onPlay()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onPause>onPause()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onStop>onStop()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onResume>onResume()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>Seek Functions:</B></TD></TR>
+<TR><TD><A href=#getPlayItemString>getPlayItemString()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>String songname</TD></TR>
+<TR><TD><A href=#getPlayItemLength>getPlayItemLength()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int length</TD></TR>
+<TR><TD><A href=#getPosition>getPosition()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int position</TD></TR>
+<TR><TD><A href=#seekTo>seekTo()</A></TD>
+<TD>Callable</TD><TD>int time</TD><TD> - </TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>Volume Functions:</B></TD></TR>
+<TR><TD><A href=#getVolume>getVolume()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int volume</TD></TR>
+<TR><TD><A href=#setVolume>setVolume()</A></TD>
+<TD>Callable</TD><TD>int volume</TD><TD> - </TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>studio.xnf Functions:</B></TD></TR>
+<TR><TD><A href=#getPrivateInt>getPrivateInt()</A></TD>
+<TD>Callable</TD><TD>String script_name, String variable_name, int variable</TD><TD>int private_int</TD></TR>
+<TR><TD><A href=#getPrivateInt>setPrivateInt()</A></TD>
+<TD>Callable</TD><TD>String script_name, String variable_name, int variable</TD><TD> - </TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>.xml Functions:</B></TD></TR>
+<TR><TD><A href=#getContainer>getContainer()</A></TD>
+<TD>Callable</TD><TD>String my_cont</TD><TD>Container my_cont_from_xml</TD></TR>
+<TR><TD><A href=#getContainer>getLayout()</A></TD>
+<TD>Callable</TD><TD>String my_lay</TD><TD>Layout my_lay_from_xml</TD></TR>
+<TR><TD><A href=#getContainer>getObject()</A></TD>
+<TD>Callable</TD><TD>String my_obj</TD><TD>Object my_obj_from_xml</TD></TR>
+<TR><TD><A href=#newDynamicContainer>newDynamicContainer()</A></TD>
+<TD>Callable</TD><TD>String my_cont</TD><TD>Container my_cont</TD></TR>
+<TR><TD><A href=#getNumContainers>getNumContainers()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int num_containers</TD></TR>
+<TR><TD><A href=#getNumLayouts>getNumLayouts()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int num_layouts</TD></TR>
+<TR><TD><A href=#enumContainer>enumContainer()</A></TD>
+<TD>Callable</TD><TD>int container</TD><TD>Container container_from_xml</TD></TR>
+<TR><TD><A href=#enumLayout>enumLayout()</A></TD>
+<TD>Callable</TD><TD>int layout</TD><TD>Layout layout_from_xml</TD></TR>
+<TR><TD><A href=#getWac>getWac()</A></TD>
+<TD>Callable</TD><TD>String my_wac</TD><TD>Wac my_wac_from_system</TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>Mathematical Functions:</B></TD></TR>
+<TR><TD><A href=#sin>cos()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double cosine_p</TD></TR>
+<TR><TD><A href=#sin>sin()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double sine_p</TD></TR>
+<TR><TD><A href=#sin>acos()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double arccosine_p</TD></TR>
+<TR><TD><A href=#sin>asin()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double arcsine_p</TD></TR>
+<TR><TD><A href=#sin>tan()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double tangent_p</TD></TR>
+<TR><TD><A href=#sin>atan()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double arctangent_p</TD></TR>
+<TR><TD><A href=#pow>pow()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double power_p</TD></TR>
+<TR><TD><A href=#pow>sqr()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double square_p</TD></TR>
+<TR><TD><A href=#pow>sqrt()</A></TD>
+<TD>Callable</TD><TD>double p</TD><TD>double squareroot_p</TD></TR>
+<TR><TD><A href=#random>random()</A></TD>
+<TD>Callable</TD><TD>int p</TD><TD>int random_p</TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>String Functions:</B></TD></TR>
+<TR><TD><A href=#integerToString>integerToString()</A></TD>
+<TD>Callable</TD><TD>int value</TD><TD>String my_value</TD></TR>
+<TR><TD><A href=#stringToInteger>stringToInteger()</A></TD>
+<TD>Callable</TD><TD>String my_value</TD><TD>int value</TD></TR>
+<TR><TD><A href=#integerToTime>integerToTime()</A></TD>
+<TD>Callable</TD><TD>int time</TD><TD>Time my_time</TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>Position Functions:</B></TD></TR>
+<TR><TD><A href=#getMousePosX>getMousePosX()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int x</TD></TR>
+<TR><TD><A href=#getMousePosY>getMousePosY()</A></TD>
+<TD>Callable</TD><TD> - </TD><TD>int y</TD></TR>
+
+<TR><TD colspan=4 bgcolor=#A1A1D2><B>Events:</B></TD></TR>
+<TR><TD><A href=#onScriptLoaded>onScriptLoaded()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+<TR><TD><A href=#onScriptUnloading>onScriptUnloading()</A></TD>
+<TD>Event</TD><TD> - </TD><TD> - </TD></TR>
+</TABLE>
+<HR>
+<B><U>Callable Functions:</B></U><BR>
+
+<DL>
+<A name="getPrivateInt">
+<DT><B>getPrivateInt(String script_name, String variable_name, int variable)<BR>
+<DT>setPrivateInt(String script_name, String variable_name, int variable)</B><BR>
+<DD>returns or writes a variable to studio.xnf 
+<DD>can be used to pull window state values from studio.xnf
+<BR><BR>
+
+<A name="getVolume">
+<DT><B>getVolume()</B>
+<DD>returns int[0 - 255] 
+<BR><BR>
+
+<A name="setVolume">
+<DT><B>setVolume(int vol)</B>
+<DD>vol = int[0 - 255] 
+<BR><BR>
+
+<A name="getPlayItemString">
+<DT><B>getPlayItemString()</B>
+<DD>returns String = item name or title
+<BR><BR>
+
+<A name="getPlayItemLength">
+<DT><B>getPlayItemLength()</B>
+<DD>returns int = total item time in milliseconds
+<BR><BR>
+
+<A name="getPosition">
+<DT><B>getPosition()</B>
+<DD>returns int = current song position in milliseconds 
+<BR><BR>
+
+<A name="seekTo">
+<DT><B>seekTo(int time)</B>
+<DD>time = int in milliseconds
+<BR><BR>
+
+<A name="Play">
+<DT><B>Play()</B>
+<DD>play currently loaded file
+<BR><BR>
+
+<A name="Pause">
+<DT><B>Pause()</B>
+<DD>pause file playing
+<BR><BR>
+
+<A name="Stop">
+<DT><B>Stop()</B>
+<DD>stop playing file
+<BR><BR>
+
+<A name="Previous">
+<DT><B>Previous()</B>
+<DD>previous file
+<BR><BR>
+
+<A name="Next">
+<DT><B>Next()</B>
+<DD>next file
+<BR><BR>
+
+<A name="Eject">
+<DT><B>Eject()</B>
+<DD>bring up the open file dialog box
+<BR><BR>
+
+<A name="getEq">
+<DT><B>getEq()</B>
+<DD>returns Boolean True/False depending upon whether the EQ is on or off
+<BR><BR>
+
+<A name="setEq">
+<DT><B>setEq(int on_off)</B>
+<DD>on_off = int[0 or 1] depending on whether you want to turn the EQ off or on
+<BR><BR>
+
+<A name="getEqBand">
+<DT><B>getEqBand(int i)</B>
+<DD>returns the current value of eq band at the specified index, i = int[0 to 9]
+<DD>returned value = int[-127 to 127]
+<BR><BR>
+
+<A name="setEqBand">
+<DT><B>setEqBand(int band, int val)</B>
+<DD>sets the specified EQ band to the specified value, band = int[0 to 9], val = int[-127 to 127]
+<BR><BR>
+
+<A name="getEqPreamp">
+<DT><B>getEqPreAmp()</B>
+<DD>returns the current EQ preamp value, val = int[-127 to 127]
+<BR><BR>
+
+<A name="setEqPreamp">
+<DT><B>setEqPreAmp(int val)</B>
+<DD>sets the EQ preamp to the specified value, val = int[-127 to 127]
+<BR><BR>
+
+<A name="getContainer">
+<DT><B>getContainer(String My_Container_ID)
+<DT>getLayout(String My_Layout_ID)
+<DT>getObject(String My_Object_ID)</B>
+<DD>used to load an object from the .xml into the script
+<DD>eg.  MyLayer = System.getContainer("main").getLayout("normal").getObject("mylayer");
+<BR><BR>
+
+<A name="getNumContainers">
+<A name="getNumLayouts">
+<A name="enumContainer">
+<A name="enumLayout">
+<DT><B>getNumContainers()
+<DT>getNumLayouts()
+<DT>enumContainer(int container)
+<DT>enumLayout(int layout)</B>
+<DD>used to load a container or layout from the .xml into the script
+<DD>example:  
+<DD>for (i = 0; i < getNumContainers(); i++) {
+<DD> &nbsp for (j = 0; j < enumContainer(i).getNumLayouts(); j++) {
+<DD> &nbsp &nbsp My_Layout = System.enumContainer(i).enumLayout(j); 
+<DD> &nbsp } 
+<DD>}
+<BR><BR>
+
+<A name="newDynamicContainer">
+<DT><B>newDynamicContainer(String my_cont)</B>
+<DD>returns (creates) a new container with id = my_cont
+<BR><BR>
+
+<A name="getWac">
+<DT><B>getWac(Wac My_Wac)</B>
+<DD>used to load a winamp component  - possibly from the .xml into the script, it's a bit
+unclear at the moment.  See sysfunc.was for an example.
+<BR><BR>
+
+<A name="cos">
+<DT>
+<DD>returns the cosine of p; can be int, float, or double
+<BR><BR>
+
+<A name="sin">
+<DT><B>sin(double p)
+<DT>cos(double p)
+<DT>tan(double p)
+<DT>asin(double p)
+<DT>acos(double p)
+<DT>atan(double p)</B>
+<DD>returns the appropriate trigonometric ratio of p; can be int, float, or double
+<BR><BR>
+
+<A name="pow">
+<DT><B>pow(double p)
+<DT>sqr(double p)
+<DT>sqrt(double p)</B>
+<DD>returns the power, square, or square root of p; can be int, float, or double
+<BR><BR>
+
+<A name="random">
+<DT><B>random(int p)</B>
+<DD>returns a random integer between 0 and p
+<BR><BR>
+
+<A name="integerToString">
+<DT><B>integerToString(int p)</B>
+<DD>converts p to a String
+<BR><BR>
+
+<A name="stringToInteger">
+<DT><B>stringToInteger(String my_value)</B>
+<DD>converts my_value to an integer
+<BR><BR>
+
+<A name="integerToTime">
+<DT><B>integerToTime(int p)</B>
+<DD>converts p to a time; p = int in milliseconds
+</DL>
+
+<A name="getMousePosX">
+<DT><B>getMousePosX()</B>
+<DD>returns the current mouse x-coordinate relative to the skin's origin
+<BR><BR>
+
+<A name="getMousePosY">
+<DT><B>getMousePosY()</B>
+<DD>returns the current mouse y-coordinate relative to the skin's origin
+<BR><BR>
+
+</DL>
+
+<HR>
+
+<U><B>Events:</B></U><BR>
+
+<DL>
+<A name="onScriptLoaded">
+<DT><B>onScriptLoaded()</B>
+<DD>executed when the skin and script are first loaded
+<DD>you should load all objects from the .xml using getContainer() etc. here, 
+  and construct all new objects that use constructors
+  ie. Map, Timer, PopupMenu, List 
+<BR><BR>
+
+<A name="onScriptUnloading">
+<DT><B>onScriptUnloading()</B>
+<DD>executed when the script is unloaded
+<DD>you should delete all unneeded objects from the .xml using delete here, 
+<DD>eg. delete my_unused_layer;
+<BR><BR>
+
+<A name="onPlay">
+<DT><B>onPlay()</B>
+<DD>executed when the system starts playing a file
+<BR><BR>
+
+<A name="onStop">
+<DT><B>onStop()</B>
+<DD>executed when the system stops playing a file
+<BR><BR>
+
+<A name="onPause">
+<DT><B>onPause()</B>
+<DD>executed when the system pauses while playing a file
+<BR><BR>
+
+<A name="onResume">
+<DT><B>onResume()</B>
+<DD>executed when the system starts playing a file after a pause
+<BR><BR>
+
+<A name="onEqBandChanged">
+<DT><B>onEqBandChanged(int band, int value)</B>
+<DD>executed when an eq band is changed, returns the band and the value it has been changed to
+<BR><BR>
+
+<A name="onPreAmpChanged">
+<DT><B>onEqPreAmpChanged(int value)</B>
+<DD>executed when the eq preamp is changed, returns the value is has been changed to
+<BR><BR>
+
+<A name="onEqChanged">
+<DT><B>onEqChanged(Boolean on)</B>
+<DD>executed when the EQ is turned off or on, returns Boolean True/False for On/Off
+<BR>
+</DL>
+
+</TD></TR>
+</TABLE>
+
+
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+<TR><TD background="../images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="../images/bot.jpg"></TD>
+<TD background="../images/botright.jpg"></TD></TR>
+</TABLE>
+
+<BR>
+<FONT color=#FFFFFF>
+<A name="Copyright">
+All documents copyright 2001 J. Stefan Kaczmarek<BR>
+All content is original, based on Nullsoft Inc.'s Winamp 3 Scripting Engine<BR>
+<BR>
+</TD>
+<TD background="../images/right.jpg"></TD></TR>
+</TABLE>
+
+</BODY>
+</HTML>
+

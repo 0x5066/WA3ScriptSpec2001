@@ -1,0 +1,373 @@
+<HTML>
+<HEAD>
+<TITLE>Top Navigator - Winamp 3 Scripting Specification</TITLE>
+</HEAD>
+<BODY background="images/background.gif" leftmargin=2>
+<A name="top">
+
+<CENTER><IMG src="images/title.gif"></CENTER><BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444 width=100%><TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+  <TR><TD><IMG src="images/pointholder.gif" width=3 height=1><FONT 
+  color=#FFFFFF size=+1 face="Verdana,Arial"><B> Welcome</B></FONT></TD>
+  <TD align="right" valign="center"><A href=javascript:ShadeWelcome()><IMG 
+  src="images/shade.gif" border=0></A><IMG src="images/pointholder.gif" width=6 height=1></TD>
+  </TR></TABLE>
+</TD>
+<TD background="images/right.jpg"></TR>
+
+<SCRIPT language="JavaScript" src="scripts/frontscript.js"></SCRIPT>
+
+<!--
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top" bgcolor=#000000>
+
+<TABLE border=0 cellpadding=6 cellspacing=1 height=100%><TR><TD background="images/tableback.jpg">
+<FONT face="Verdana,Arial"><B>Chooser:</B><BR>
+ <TABLE border=0 cellpadding=0 cellspacing=0>
+ <TR><TD> &nbsp </TD></TR>
+ <TR><TD>&nbsp <A href=#Intro><IMG src="images/info.gif" border=0 align="center" hspace=4></A></TD>
+ <TD valign="center"><FONT face="Verdana,Arial"><A href=#Intro>Introduction</A></TD></TR>
+ <TR><TD> &nbsp </TD></TR>
+ <TR><TD>&nbsp <A href=#News><IMG src="images/news.gif" border=0 align="center" hspace=4></A></TD> 
+ <TD valign="center"><FONT face="Verdana,Arial"><A href=#News>News</A></TD></TR>
+ <TR><TD> &nbsp </TD></TR>
+ <TR><TD>&nbsp <A href=#MoreInfo><IMG src="images/links.gif" border=0 align="center" hspace=4 ></A></TD> 
+ <TD valign="center"><FONT face="Verdana,Arial"><A href=#MoreInfo>More Info</A></TD></TR>
+ <TR><TD> &nbsp </TD></TR>
+ <TR><TD>&nbsp <A href=#Tutorials><IMG src="images/tutorial.gif" border=0 align="center" hspace=4 ></A></TD> 
+ <TD valign="center"><FONT face="Verdana,Arial"><A href=#Tutorials>Tutorials</A></TD></TR>
+ <TR><TD> &nbsp </TD></TR>
+ <TR><TD>&nbsp <A href=#Scripts><IMG src="images/script.gif" border=0 align="center" hspace=4 ></A></TD> 
+ <TD valign="center"><FONT face="Verdana,Arial"><A href=#Scripts>Scripts</A></TD></TR>
+ <TR><TD> &nbsp </TD></TR>
+ <TR><TD>&nbsp <A href="html/classquick.html"><IMG src="images/class.gif" border=0 align="center" hspace=4 ></A></TD> 
+ <TD valign="center"><FONT face="Verdana,Arial"><A href="html/classquick.html">Class Table</A></TD></TR>
+ <TR><TD> <BR><BR> </TD></TR>
+ </TABLE>
+</FONT></TD>
+</TR></TABLE>
+
+</TD>
+<TD><IMG src="images/pointholder.gif" width=4 height=1></TD>
+<TD valign="top">
+Welcome to the Winamp 3 Scripting Specification by yours truly, RhinoTrip.  See below for 
+<A href=#Copyright>Copyright info</A>.  Winamp 3 Codename Wasabi is the next generation audio 
+player for Windows, produced by <A href="http://www.winamp.com" target="_top">Nullsoft, Inc.</A> 
+Winamp 3 includes extensive support for user-designed 
+graphical user interfaces, or "skins".  Much of the functionality of these skins is based upon 
+<i>scripts</i>, which are interpreted by the Winamp 3 scripting engine.  The functionality of 
+the engine is almost limitless, and therefore its use is somewhat complicated.  This 
+site attempts two things; <B>a)</B> it provides a comprehensive list of the pre-defined classes and functions available 
+to script writers, and <B>b)</B> it provides information and tutorials for those not familiar 
+with WA3 Script programming conventions, and pre-made scripts for those who do not 
+wish to code a WA3 script themselves.
+<BR><BR>
+<B>Contributions by:</B>  Spoonman, Francis Gastellu
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+
+-->
+
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+
+
+<A name="Intro">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444 width=100%>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Introduction</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> 
+  <IMG src="images/pointholder.gif" width=8 height=1><A href=javascript:ShadeIntro()><IMG 
+  src="images/shade.gif" border=0></A><IMG src="images/pointholder.gif" width=6 height=1></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<SCRIPT language="JavaScript" src="scripts/introscript.js"></SCRIPT>
+
+<!--
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B>The Concept</B><BR>
+Winamp 3 (WA3) includes extensive support for user-designed 
+graphical user interfaces, or "skins".  Much of the functionality of these skins is based upon 
+<i>scripts</i>, which are plain text files written in the WA3 script language and compiled to a 
+binary format that is interpreted by the Winamp 3 Scripting Engine.  Through the engine, the 
+scripts can direct many sorts of behaviour for various visible and invisible interface objects 
+such as buttons, faders, and text display areas.
+<BR><BR>
+<B>The Script Source</B><BR>
+The script source file itself is written in the 
+Winamp 3 scripting language, which is a variant of C++; many common C++ operands such as +, -, 
+++ and so on function in the WA3 scripting language as they would in C++.  If... Else, For, and 
+While looping structures are also present, as are functions and classes just as in any other 
+object oriented programming language - for an explanation of these structures as they pertain 
+to WA3, <A href="basic.html">look at the basic tutorials</A>.  The script source 
+files are plain text files, such as those created by notepad, with an .m extension.  The .m 
+source file is compiled using mc.exe (included w/ WA3) to a .maki binary file.  
+<BR><BR>
+<B>Using This Site</B><BR>
+Use the upper-left hand frame to change the display here for the left-justified topics, or to change the 
+functions displayed in the lower-left hand frame for indented classes.<BR><BR>
+Use the lower frame to change the display here.  For an overview of a class's functions 
+including type, arguments, and returns, simply click on the name of the that class.  For more 
+detailed information on a particular function, click on its name.
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+
+-->
+
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="News"><A name="MoreInfo">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD width=60% valign="top">
+
+<TABLE border=0 cellpadding=0 cellspacing=0>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>News</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> 
+  <IMG src="images/pointholder.gif" width=8 height=1><A href=javascript:ShadeNews()><IMG 
+  src="images/shade.gif" border=0></A><IMG src="images/pointholder.gif" width=6 height=1></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<SCRIPT language="JavaScript" src="scripts/newsscript.js"></SCRIPT>
+
+<!--
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+6/5 - BIG graphics update, classes added to navbar, functions coming soon!
+<BR><BR>
+6/4 - Update to navigational controls, and beginning the labor intensive process of breaking 
+down all of the classes into their own color-coded pages (see <A href="html/system.html">System</A> 
+for an example - comments welcome).  Adding some new functions too.
+<BR><BR>
+5/25 - BIG update to stretchable EQ script, should now function fully with horizontal EQ's.
+<BR><BR>
+5/25 - New "Guru Meditation Debugging Guide" added, courtesy of Francis.  
+<A href="guru.html">Get it here</A>.  Extra <A href="basic.html#Classes">Class info</A> added.  
+<A href="basic.html#Inherit">Inheritance info</A> added.  New "Adding Player Buttons to Other Windows" 
+courtesy of Spoonman, <A href="tutorials.html#ButtonsOther">get it here</A>.
+<BR><BR>
+5/24 - New "snapping" feature added to volume script, so that volume "knobs" will no longer 
+flip over to 0 from 100 or vice versa.  They really have to be cranked up or down.  Lots more 
+functions (the rest of the A666 ones) and some new classes coming soon.
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+
+-->
+
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+</TD>
+
+<TD><IMG src="images/pointholder.gif" width=6 height=1></TD>
+
+<TD width=40% valign="top">
+<TABLE border=0 cellpadding=0 cellspacing=0>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>More Info</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B>Site Archive:</B><BR>
+For local browsing on your computer, a zip archive of this entire site is now available:<BR>
+<A href="downloads/WA3ScriptingSpec.zip">WA3 Scripting Spec Zip</A><BR>
+<BR>
+<B>More information:</B> <BR>
+ &nbsp <A href="http://www.winamp.com/nsdn/" target="_top">Nullsoft Developer Network</A><BR>  
+ &nbsp <A href="http://www.skinmaster.co.uk/wa3/" target="_top">SkinMaster.co.uk Skinning Spec</A><BR>
+ &nbsp <A href="http://www.bluemars.org/wa3skintutorial/" target="_top">Francis' page</A><BR>
+<BR>
+<B>Skins</B><BR>
+ &nbsp <A href="http://www.stefanweb.com/coolstuff.html" target="_top">RhinoTrip Skins</A><BR>
+ &nbsp <A href="http://www.deviantart.com/browse/?section=wathree" target="_top">DeviantArt</A><BR>
+ &nbsp <A href="http://wasabi.da.ru/" target="_top">Wasabi.da.ru</A><BR>
+<BR>
+<B>The latest Compiler</B><BR>
+For alpha 666:  <A href="http://genghis.winamp.com/~brennan/wa3/">Winamp A666</A>
+<BR>
+Use at the DOS prompt like this:<BR>  C:\WA3\> mc myfunky.m
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+
+<A name="Tutorials">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Tutorials</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+<B>Basic Information:</B> (Start here if you are new)<BR>
+ <LI><A href="basic.html#Classes">Classes</A>
+ <LI><A href="basic.html#Functions">Functions</A>
+ <LI><A href="basic.html#Inherit">Inheritance</A>
+<BR><BR><B>Applications:</B><BR>
+ <LI><A href="tutorials.html#PrivateInts">Using PrivateInts to store/read information from 
+studio.xnf</A>
+ <LI><A href="tutorials.html#UsingMaps">Using Maps for Animations</A>
+ <LI><A href="tutorials.html#UsingThumbs">Animated Sliders Without Maps</A>
+ <LI><A href="tutorials.html#ButtonsOther">Adding Player Buttons to Other Windows</A>
+<BR><BR><B>Errors and Debugging:</B><BR>
+ <LI><A href="tutorials.html#Guru">Avoiding Guru Meditations</A>
+ <LI><A href="guru.html">Guru Meditation Debugging Guide</A>
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+</TABLE>
+
+<A name="Scripts">
+<BR>
+
+<TABLE border=0 cellpadding=0 cellspacing=0 width=100%>
+<TR><TD background="images/topleft.jpg"><TABLE width=2 height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/top.jpg"></TD>
+<TD background="images/topright.jpg"><TABLE width=2 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD bgcolor=#448444>
+  <TABLE border=0 cellpadding=0 cellspacing=0 width=100%><TR><TD><IMG src="images/pointholder.gif" width=3 height=1>
+  <FONT color=#FFFFFF size=+1 face="Verdana,Arial"><B>Pre-Made Scripts</B></FONT></TD>
+  <TD align="right" valign="center"><A href=#top><IMG src="images/top.gif" border=0></A> <B><A href=#top><FONT color=#FFFFFF>top</FONT></A> &nbsp </B></TD></TR>
+  </TABLE></TD>
+<TD background="images/right.jpg"></TD></TR>
+
+<TR><TD background="images/left.jpg"></TD>
+<TD background="images/tableback.jpg">
+
+<TABLE border=0 cellpadding=0 cellspacing=2 width=100%>
+<TR><TD valign="top">
+ <DL>
+ <DT><B><A href="scripts/EQStretchScript.zip">EQ Stretch Script</A></B>
+ <DD>This script controls a stretchable set of EQ faders and a preamp in the main window.  
+ See the <A href="http://www.deskmod.com/?page=show&skinid=19011">kjofol skin</A> or my next 
+ skin, <A href="http://www.stefanweb.com/skins/HuntGear.jpg">Rhino HuntGear</A>, for 
+ examples of what such an EQ might look like; instructions are included in the .m file, 
+ batteries are not.  (Use a simple text editor like Notepad to view the .m file)
+ <BR><BR>
+ <DT><B><A href="scripts/VolumeAnimScript.zip">Animated Volume Script</A></B>
+ <DD>This script controls a funk-ily shaped animated volume bar, like can be seen in many 
+ skins, eg. <A href="http://www.deviantart.com/deviation.php?id=43679">Rhino HuntGear</A>, 
+ <A href="http://www.deskmod.com/?page=show&skinid=19011">kjofol</A>, and so on.  Instructions 
+ are included in the .m file, sorry intelligence is not included.  (Use a simple text editor 
+ like Notepad to view the .m file)
+ <BR><BR>
+ <DT><B><A href="scripts/SeekAnimScript.zip">Animated Seek Script</A></B>
+ <DD>This script controls a funk-ily shaped animated seek bar, like can be seen in many 
+ skins, eg. <A href="http://www.deviantart.com/deviation.php?id=43679">Rhino HuntGear</A>, 
+ <A href="http://www.deskmod.com/?page=show&skinid=19011">kjofol</A>, and so on.  Instructions 
+ are included in the .m file, frying pan is not.  (Use a simple text editor 
+ like Notepad to view the .m file)
+ </DL>
+
+</TD></TR></TABLE>
+
+</TD>
+<TD background="images/right.jpg"></TD></TR>
+<TR><TD background="images/botleft.jpg"><TABLE height=3 border=0 cellpadding=0 cellspacing=0><TR><TD> </TD></TR></TABLE></TD>
+<TD background="images/bot.jpg"></TD>
+<TD background="images/botright.jpg"></TD></TR>
+
+</TABLE>
+
+-->
+
+<BR>
+<FONT color=#FFFFFF>
+<A name="Copyright">
+<A href="http://www.stefanweb.com"><IMG src="../images/stefanbutton.gif" border=0 align="center" hspace=4></A>
+Hosted by StefanWeb.com<BR>
+All documents copyright 2001 J. Stefan Kaczmarek<BR>
+All content is original, based on Nullsoft Inc.'s Winamp 3 Scripting Engine<BR>
+<BR>
+
+</BODY>
+
+</HTML>
+
